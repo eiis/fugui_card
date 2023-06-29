@@ -1,23 +1,22 @@
-/*
- * @Author: zhangdi 1258956799@qq.com
- * @Date: 2023-04-01 22:08:38
- * @LastEditors: zhangdi 1258956799@qq.com
- * @LastEditTime: 2023-06-28 23:17:41
- * @FilePath: /my-project/vite.config.ts
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import mkcert from 'vite-plugin-mkcert'
 import basicSsl from '@vitejs/plugin-basic-ssl'
+import VueDevTools from 'vite-plugin-vue-devtools'
+import BuildInfo from 'vite-plugin-info'
 import path from 'path'
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    // VueDevTools(),
     vue(),
+    splitVendorChunkPlugin(),
+    // VueDevTools(),
     // basicSsl(),
-    mkcert()
+    mkcert(),
+    // BuildInfo({ meta: { message: 'This is set from vite.config.ts' } })
   ],
   resolve: {
     alias: {
@@ -26,7 +25,7 @@ export default defineConfig({
     }
   },
   server: {
-    open: true,
+    // open: true,
     https: true
   },
   build: {
@@ -34,8 +33,15 @@ export default defineConfig({
     // 将 rollupInputOptions 改为 rollupOptions
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'src/main.js'),
-        vendor: path.resolve(__dirname, 'src/vendor.js')
+        main: path.resolve(__dirname, 'src/main.ts'),
+        // vendor: path.resolve(__dirname, 'src/vendor.js')
+      },
+      output: {
+        manualChunks: {
+          'chunkHelloWorld': ['src/components/HelloWorld.vue'],
+          // 'vue': ['vue'],
+          // 其他文件将被打包到一个默认的chunk中
+        },
       },
     }
   }
