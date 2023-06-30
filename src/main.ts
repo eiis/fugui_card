@@ -1,5 +1,7 @@
-import { createApp } from 'vue'
 import './index.css'
+
+import { createApp } from 'vue'
+
 import App from './App.vue'
 // import now from '~build/time'
 // import {

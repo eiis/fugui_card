@@ -43,6 +43,7 @@ export default defineConfig({
           // 其他文件将被打包到一个默认的chunk中
         },
       },
-    }
+    },
+    sourcemap: 'hidden'
   }
 })
