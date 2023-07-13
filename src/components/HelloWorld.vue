@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import party from "party-js";
-import { onMounted, ref, Ref } from 'vue'
+import { onMounted, ref, Ref } from 'vue';
 //需要在eslint中配置ecmaVersion为2020
 // const apiPrefix = import.meta.env.VITE_API_PREFIX;
 
@@ -24,8 +24,8 @@ onMounted(() => {
       <div class="flex-shrink-0">
         <img class="h-12 w-12 " src="@/assets/vue.svg" alt="ChitChat Logo">
       </div>
-      <div class="group ">
-        <div class="text-xl font-medium text-black group-hover:text-gray-900">Vite+Vue</div>
+      <div class="group">
+        <div class="font-custom text-xl font-medium text-black group-hover:text-gray-900">Vite+Vue</div>
         <p class="text-gray-500">You have a new message</p>
         <button class="px-4 bg-red-500 rounded-md hover:bg-red-700 motion-safe:hover:scale-110" @click="btnCkick">
           Click me!

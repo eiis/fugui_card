@@ -5,7 +5,7 @@ import AutoImport from 'unplugin-auto-import/vite';
 import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import mkcert from 'vite-plugin-mkcert';
-import vitePluginSemanticChunks from 'vite-plugin-semantic-chunks';
+// import vitePluginSemanticChunks from 'vite-plugin-semantic-chunks';
 
 import { setPreLoadFile } from './src/plugin/vite-plugin-preload';
 // // 根据 NODE_ENV 加载 .env 文件
@@ -26,7 +26,7 @@ export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
-    base: './',
+    // base: './',
     plugins: [
       // VueDevTools(),
       vue(),
@@ -34,7 +34,7 @@ export default defineConfig(({ command, mode }) => {
       // VueDevTools(),
       // basicSsl(),
       mkcert(),
-      vitePluginSemanticChunks(),
+      // vitePluginSemanticChunks(),
       alias({
         entries: [
           { find: '@', replacement: '/src' },
@@ -66,6 +66,7 @@ export default defineConfig(({ command, mode }) => {
       })
       // BuildInfo({ meta: { message: 'This is set from vite.config.ts' } })
     ],
+    assetsInclude: ['**/*.ttf'],
     resolve: {
       alias: {
         // 将 `@` 解析为 `/src` 目录
@@ -88,10 +89,17 @@ export default defineConfig(({ command, mode }) => {
           manualChunks: {
           },
           assetFileNames: (assetInfo) => {
-            if (assetInfo.name.endsWith('.svg') || assetInfo.name.endsWith('.jpeg') || assetInfo.name.endsWith('.png') || assetInfo.name.endsWith('.jpg')) {
+            console.log('assetInfo', assetInfo.name)
+            if (assetInfo.name.endsWith('.jpeg') || assetInfo.name.endsWith('.png') || assetInfo.name.endsWith('.jpg')) {
               return 'images/[name][extname]';
-            } else if (assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.woff') || assetInfo.name.endsWith('.woff2') || assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.eot')) {
-              return 'fonts/[name][extname]';
+            }
+            else if (assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.woff') || assetInfo.name.endsWith('.woff2') || assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.eot')) {
+              return 'font/[name][extname]';
+            }
+            else if (assetInfo.name.endsWith('.svg')) {
+              return 'svg/[name][extname]';
+            } else if (assetInfo.name.endsWith('.css')) {
+              return 'css/[name][extname]';
             } else {
               return '[name][extname]';
             }

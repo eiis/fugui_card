@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+  font-family: 'fugui';
+  src: url('./assets/font/蝉羽胡杨体.ttf');
+}
