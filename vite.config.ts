@@ -80,9 +80,18 @@ export default defineConfig(({ command, mode }) => {
         output: {
           manualChunks: {
           },
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.name.endsWith('.svg') || assetInfo.name.endsWith('.jpeg') || assetInfo.name.endsWith('.png') || assetInfo.name.endsWith('.jpg')) {
+              return 'images/[name][extname]';
+            } else if (assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.woff') || assetInfo.name.endsWith('.woff2') || assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.eot')) {
+              return 'fonts/[name][extname]';
+            } else {
+              return '[name][extname]';
+            }
+          }
         },
       },
-      sourcemap: true
+      // sourcemap: true
     }
   }
 })
