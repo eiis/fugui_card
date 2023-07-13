@@ -7,6 +7,7 @@ import { createHtmlPlugin } from 'vite-plugin-html';
 import mkcert from 'vite-plugin-mkcert';
 import vitePluginSemanticChunks from 'vite-plugin-semantic-chunks';
 
+import { setPreLoadFile } from './src/plugin/vite-plugin-preload';
 // // 根据 NODE_ENV 加载 .env 文件
 // const envFile = `.env.${process.env.NODE_ENV}`;
 // if (fs.existsSync(path.resolve(__dirname, envFile))) {
@@ -37,7 +38,6 @@ export default defineConfig(({ command, mode }) => {
       alias({
         entries: [
           { find: '@', replacement: '/src' },
-          { find: 'batman-1.0.0', replacement: './joker-1.5.0' }
         ]
       }),
       createHtmlPlugin({
@@ -57,6 +57,13 @@ export default defineConfig(({ command, mode }) => {
         vueTemplate: true,
         // cache: true,
       }),
+      // 设置预加载文件，提升页面首次加载速度（仅开发环境需要）
+      mode === 'development' && setPreLoadFile({
+        pathList: [ // 需要提前加载的资源目录
+          './src/components/'
+        ],
+        preFix: 'https://127.0.0.1:5173' // 项目根路径
+      })
       // BuildInfo({ meta: { message: 'This is set from vite.config.ts' } })
     ],
     resolve: {

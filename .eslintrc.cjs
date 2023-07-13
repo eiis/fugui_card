@@ -1,26 +1,29 @@
 module.exports = {
-  //解析器选项
-  "parser": "vue-eslint-parser",
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/vue3-essential"
+  ],
   "parserOptions": {
-    "sourceType": "module",
     "ecmaVersion": 2020,
+    "sourceType": "module",
     "ecmaFeatures": {
-      "globalReturn": false,
-      "impliedStrict": false,
-      "jsx": false
+      "jsx": true
     }
   },
-  //代码运行的环境
-  env: {
-    browser: true,
-    node: true,
-    es6: true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
   },
-  // ESLint 插件
-  plugins: ['simple-import-sort'],
-  //如何检查你的代码
-  rules: {
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
-  },
+  "plugins": [
+    "simple-import-sort",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off"
+  }
 };
