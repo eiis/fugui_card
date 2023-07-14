@@ -10,7 +10,7 @@ function getFiles(e: string) {
       arr.push(e + dirent.name)
     }
   }
-  console.log('arr', arr)
+  // console.log('arr', arr)
   return arr
 }
 
