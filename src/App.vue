@@ -33,9 +33,9 @@ const HelloWorld = defineAsyncComponent({
 })
 const state = ref({ count: 0, foo: 'bar', title: 'dashu' });
 
-// const btnClick = () => {
-//   // state.value.count += 1
-// }
+const btnClick = () => {
+  // state.value.count += 1
+}
 const change = () => {
   state.value.title = 'huakai'
 }
@@ -43,6 +43,8 @@ const change = () => {
 
 <template>
   <div class="container">
+    <!-- <Home /> -->
+    <!-- <Home1 /> -->
     <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo">
       <template #header>
         <p>slot_Header</p>
