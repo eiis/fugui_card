@@ -31,12 +31,37 @@ const HelloWorld = defineAsyncComponent({
     },
   }),
 })
+const state = ref({ count: 0, foo: 'bar', title: 'dashu' });
 
-// import HelloWorld from './test';
+// const btnClick = () => {
+//   // state.value.count += 1
+// }
+const change = () => {
+  state.value.title = 'huakai'
+}
 </script>
 
 <template>
-  <HelloWorld />
+  <div class="container">
+    <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo">
+      <template #header>
+        <p>slot_Header</p>
+      </template>
+      <template #default>
+        <p>slot_default</p>
+      </template>
+    </HelloWorld> -->
+    <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo" v-slot="slotProps">
+      {{ slotProps.text }}
+      {{ slotProps.count }}
+    </HelloWorld> -->
+    <HelloWorld v-model:count="state.count" v-model:foo="state.foo" :title="state.title" @change="change">
+      <template #header="headerProps">
+        {{ headerProps.message }}
+      </template>
+    </HelloWorld>
+    <!-- <HelloWorld v-model:count="state.count" v-model:foo.capitalize="state.foo" @update:count="btnClick" /> -->
+  </div>
 </template>
 
 <style scoped>
