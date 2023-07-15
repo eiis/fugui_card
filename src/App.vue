@@ -2,7 +2,8 @@
 import { Component, defineAsyncComponent, defineComponent, h, onBeforeMount, onMounted, ref } from 'vue';
 
 
-const modules = import.meta.glob('./components/*.vue')
+//导入的模块会单独打包为一个chunk
+const modules = import.meta.glob('./components/HelloWorld.vue')
 // const HelloWorld = defineAsyncComponent(() => modules['./components/HelloWorld.vue']() as Promise<{ default: Component }>)
 
 const HelloWorld = defineAsyncComponent({

@@ -5,8 +5,8 @@ import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import mkcert from 'vite-plugin-mkcert';
 // import vitePluginSemanticChunks from 'vite-plugin-semantic-chunks';
-import Vue from '@vitejs/plugin-vue';
-import VueMacros from 'unplugin-vue-macros/vite';
+import vue from '@vitejs/plugin-vue';
+// import VueMacros from 'unplugin-vue-macros/vite';
 import { setPreLoadFile } from './src/plugin/vite-plugin-preload';
 // // 根据 NODE_ENV 加载 .env 文件
 // const envFile = `.env.${process.env.NODE_ENV}`;
@@ -31,7 +31,7 @@ export default defineConfig(({ command, mode }) => {
   return {
     // base: './',
     plugins: [
-      // vue(),
+      vue(),
       splitVendorChunkPlugin(),
       // VueDevTools(),
       // basicSsl(),
@@ -61,11 +61,11 @@ export default defineConfig(({ command, mode }) => {
         ],
         preFix: 'https://127.0.0.1:5173' // 项目根路径
       }),
-      VueMacros({
-        plugins: {
-          vue: Vue(),
-        },
-      }),
+      // VueMacros({
+      //   plugins: {
+      //     vue: Vue(),
+      //   },
+      // }),
       // BuildInfo({ meta: { message: 'This is set from vite.config.ts' } })
     ],
     assetsInclude: ['**/*.ttf'],
