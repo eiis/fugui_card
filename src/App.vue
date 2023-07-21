@@ -45,9 +45,14 @@ function btnClick() {
 //   state.value.title = 'huakai'
 // }
 
+function add() {}
+
 function change() {
   state.value.title = 'huakai'
 }
+// function change() {
+//   state.value.title = 'huakai'
+// }
 </script>
 
 <template>
