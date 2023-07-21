@@ -8,6 +8,8 @@ console.log(modules)
 
 console.log('1')
 
+console.log('2')
+
 // const HelloWorld = defineAsyncComponent(() => modules['./components/HelloWorld.vue']() as Promise<{ default: Component }>)
 
 const HelloWorld = defineAsyncComponent({
