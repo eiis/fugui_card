@@ -6,6 +6,8 @@ import { defineAsyncComponent, defineComponent, h, onBeforeMount, onMounted, ref
 const modules = import.meta.glob('./components/HelloWorld.vue')
 console.log(modules)
 
+console.log('1')
+
 // const HelloWorld = defineAsyncComponent(() => modules['./components/HelloWorld.vue']() as Promise<{ default: Component }>)
 
 const HelloWorld = defineAsyncComponent({
