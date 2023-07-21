@@ -1,13 +1,16 @@
-import alias from '@rollup/plugin-alias';
-import path from 'path';
-import AutoImport from 'unplugin-auto-import/vite';
-import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite';
-import { createHtmlPlugin } from 'vite-plugin-html';
-import mkcert from 'vite-plugin-mkcert';
+import path from 'node:path'
+import alias from '@rollup/plugin-alias'
+import AutoImport from 'unplugin-auto-import/vite'
+import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
+import { createHtmlPlugin } from 'vite-plugin-html'
+import mkcert from 'vite-plugin-mkcert'
+
 // import vitePluginSemanticChunks from 'vite-plugin-semantic-chunks';
-import vue from '@vitejs/plugin-vue';
+import vue from '@vitejs/plugin-vue'
+
 // import VueMacros from 'unplugin-vue-macros/vite';
-import { setPreLoadFile } from './src/plugin/vite-plugin-preload';
+import { setPreLoadFile } from './src/plugin/vite-plugin-preload'
+
 // // 根据 NODE_ENV 加载 .env 文件
 // const envFile = `.env.${process.env.NODE_ENV}`;
 // if (fs.existsSync(path.resolve(__dirname, envFile))) {
@@ -25,7 +28,6 @@ export default defineConfig(({ command, mode }) => {
   // 设置第三个参数为 '' 来加载所有环境变量，而不管是否有 `VITE_` 前缀。
   const env = loadEnv(mode, process.cwd(), '')
 
-
   // console.log('process.env.BASE_ENV', process.env)
 
   return {
@@ -40,14 +42,14 @@ export default defineConfig(({ command, mode }) => {
       alias({
         entries: [
           { find: '@', replacement: '/src' },
-        ]
+        ],
       }),
       createHtmlPlugin({
         inject: {
           data: {
             title: env.VITE_APP_TITLE,
           },
-        }
+        },
       }),
       AutoImport({
         imports: ['vue', '@vueuse/core'],
@@ -57,9 +59,9 @@ export default defineConfig(({ command, mode }) => {
       // 设置预加载文件，提升页面首次加载速度（仅开发环境需要）
       mode === 'development' && setPreLoadFile({
         pathList: [ // 需要提前加载的资源目录
-          './src/components/'
+          './src/components/',
         ],
-        preFix: 'https://127.0.0.1:5173' // 项目根路径
+        preFix: 'https://127.0.0.1:5173', // 项目根路径
       }),
       // VueMacros({
       //   plugins: {
@@ -73,11 +75,11 @@ export default defineConfig(({ command, mode }) => {
       alias: {
         // 将 `@` 解析为 `/src` 目录
         // '@': path.resolve(__dirname, 'src')
-      }
+      },
     },
     server: {
       // open: true,
-      https: true
+      https: true,
     },
     build: {
       target: 'es2015',
@@ -92,23 +94,22 @@ export default defineConfig(({ command, mode }) => {
           },
           assetFileNames: (assetInfo) => {
             console.log('assetInfo', assetInfo.name)
-            if (assetInfo.name.endsWith('.jpeg') || assetInfo.name.endsWith('.png') || assetInfo.name.endsWith('.jpg')) {
-              return 'images/[name][extname]';
-            }
-            else if (assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.woff') || assetInfo.name.endsWith('.woff2') || assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.eot')) {
-              return 'font/[name][extname]';
-            }
-            else if (assetInfo.name.endsWith('.svg')) {
-              return 'svg/[name][extname]';
-            } else if (assetInfo.name.endsWith('.css')) {
-              return 'css/[name][extname]';
-            } else {
-              return '[name][extname]';
-            }
-          }
+            if (assetInfo.name.endsWith('.jpeg') || assetInfo.name.endsWith('.png') || assetInfo.name.endsWith('.jpg'))
+              return 'images/[name][extname]'
+
+            else if (assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.woff') || assetInfo.name.endsWith('.woff2') || assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.eot'))
+              return 'font/[name][extname]'
+
+            else if (assetInfo.name.endsWith('.svg'))
+              return 'svg/[name][extname]'
+            else if (assetInfo.name.endsWith('.css'))
+              return 'css/[name][extname]'
+            else
+              return '[name][extname]'
+          },
         },
       },
       // sourcemap: true
-    }
+    },
   }
 })

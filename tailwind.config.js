@@ -6,13 +6,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'custom': ['fugui', 'sans-serif']
-      }
+        custom: ['fugui', 'sans-serif'],
+      },
     },
   },
   variants: {
     extend: {
-      padding: ['hover']
+      padding: ['hover'],
     },
   },
   plugins: [],
