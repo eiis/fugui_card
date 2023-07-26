@@ -9,6 +9,7 @@ import mkcert from 'vite-plugin-mkcert'
 import vue from '@vitejs/plugin-vue'
 
 // import VueMacros from 'unplugin-vue-macros/vite';
+import svgLoader from 'vite-svg-loader'
 import { setPreLoadFile } from './src/plugin/vite-plugin-preload'
 
 // // 根据 NODE_ENV 加载 .env 文件
@@ -63,6 +64,7 @@ export default defineConfig(({ command, mode }) => {
         ],
         preFix: 'https://127.0.0.1:5173', // 项目根路径
       }),
+      svgLoader(),
       // VueMacros({
       //   plugins: {
       //     vue: Vue(),

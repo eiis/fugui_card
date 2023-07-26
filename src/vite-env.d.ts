@@ -3,6 +3,12 @@ declare module '~build/meta' {
   export const message: string;
 }
 
+declare module "*.svg?component" {
+  import { DefineComponent } from 'vue';
+  const component: DefineComponent<{}, {}, any>;
+  export default component;
+}
+
 declare module '~build/time' {
   const now: string;
   export default now;

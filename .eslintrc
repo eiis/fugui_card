@@ -3,6 +3,7 @@
     "@antfu"
   ],
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "n/prefer-global/process": "off"
   }
 }

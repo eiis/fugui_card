@@ -7,10 +7,8 @@
     "strict": true,
     "types": [
       "unplugin-vue-macros/macros-global",
-      "node"
-    ],
-    "plugins": [
-      "@vue-macros/volar/define-props"
+      "node",
+      "vite/client"
     ],
     "jsx": "preserve",
     "resolveJsonModule": true,
@@ -29,6 +27,7 @@
     "src/**/*.tsx",
     "src/**/*.vue"
   ],
+  "exclude": ["dist", "node_modules"],
   "references": [
     {
       "path": "./tsconfig.node.json"
@@ -36,6 +35,7 @@
   ],
   "vueCompilerOptions": {
     "plugins": [
+      "@vue-macros/volar/define-props",
       "@vue-macros/volar/define-options",
       "@vue-macros/volar/define-models",
       "@vue-macros/volar/define-props",

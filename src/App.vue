@@ -33,7 +33,7 @@ const HelloWorld = defineAsyncComponent({
       // 从 setup 函数返回一个函数
       return () => {
         // 这个函数会被作为渲染函数，它返回了一个由 h 函数创建的虚拟 DOM 节点
-        return h('div', { class: 'h-screen w-screen flex items-center justify-center', ref: elRef }, 'Loading')
+        return h('div', { class: 'h-full w-full flex items-center justify-center', ref: elRef }, 'Loading')
       }
     },
   }),
@@ -58,7 +58,7 @@ function change() {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mx-auto">
     <!-- <Home /> -->
     <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo">
       <template #header>
