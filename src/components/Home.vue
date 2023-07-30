@@ -22,7 +22,6 @@ export default {
 }
 </script>
 
-<template />
-
-<style scoped>
-</style>
+<template>
+  <div />
+</template>

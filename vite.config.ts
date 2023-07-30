@@ -1,14 +1,17 @@
 import path from 'node:path'
 import alias from '@rollup/plugin-alias'
 import AutoImport from 'unplugin-auto-import/vite'
+import Vue from '@vitejs/plugin-vue'
 import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import mkcert from 'vite-plugin-mkcert'
 
-// import vitePluginSemanticChunks from 'vite-plugin-semantic-chunks';
-import vue from '@vitejs/plugin-vue'
+// 自动导入组件
+import Components from 'unplugin-vue-components/vite'
 
-// import VueMacros from 'unplugin-vue-macros/vite';
+// import vitePluginSemanticChunks from 'vite-plugin-semantic-chunks';
+
+import VueMacros from 'unplugin-vue-macros/vite'
 import svgLoader from 'vite-svg-loader'
 import { setPreLoadFile } from './src/plugin/vite-plugin-preload'
 
@@ -34,7 +37,13 @@ export default defineConfig(({ command, mode }) => {
   return {
     // base: './',
     plugins: [
-      vue(),
+      VueMacros({
+        plugins: {
+          vue: Vue({
+            include: [/\.vue$/, /\.md$/],
+          }),
+        },
+      }),
       splitVendorChunkPlugin(),
       // VueDevTools(),
       // basicSsl(),
@@ -52,10 +61,29 @@ export default defineConfig(({ command, mode }) => {
           },
         },
       }),
+      // https://github.com/antfu/unplugin-auto-import
       AutoImport({
-        imports: ['vue', '@vueuse/core'],
+        imports: [
+          'vue',
+          'vue-router',
+          'vue-i18n',
+          '@vueuse/head',
+          '@vueuse/core',
+        ],
+        dts: 'src/auto-imports.d.ts',
+        dirs: [
+          'src/composables',
+          'src/stores',
+        ],
         vueTemplate: true,
-        // cache: true,
+      }),
+      // https://github.com/antfu/unplugin-vue-components
+      Components({
+      // allow auto load markdown components under `./src/components/`
+        extensions: ['vue', 'md'],
+        // allow auto import and register components used in markdown
+        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+        dts: 'src/components.d.ts',
       }),
       // 设置预加载文件，提升页面首次加载速度（仅开发环境需要）
       mode === 'development' && setPreLoadFile({
@@ -72,6 +100,14 @@ export default defineConfig(({ command, mode }) => {
       // }),
       // BuildInfo({ meta: { message: 'This is set from vite.config.ts' } })
     ],
+    // 放在外面需要配置Vue plugins
+    test: {
+      include: ['test/**/*.test.ts'],
+      environment: 'jsdom',
+      deps: {
+        inline: ['@vue', '@vueuse', 'vue-demi'],
+      },
+    },
     assetsInclude: ['**/*.ttf'],
     resolve: {
       alias: {

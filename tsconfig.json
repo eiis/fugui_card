@@ -6,6 +6,8 @@
     "moduleResolution": "Node",
     "strict": true,
     "types": [
+      "vitest",
+      "vue/ref-macros",
       "unplugin-vue-macros/macros-global",
       "node",
       "vite/client"
@@ -22,10 +24,7 @@
     "noEmit": true
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
+    // "src/*"
   ],
   "exclude": ["dist", "node_modules"],
   "references": [
