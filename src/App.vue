@@ -81,9 +81,9 @@ const initial = ref(1)
         {{ headerProps.message }}
       </template>
     </HelloWorld> -->
-    <!-- <TheCounter :initial="initial" /> -->
+    <TheCounter />
     <!-- <Popover /> -->
-    <HelloWorld v-model:count="state.count" v-model:foo.capitalize="state.foo" @update:count="btnClick" />
+    <!-- <HelloWorld v-model:count="state.count" v-model:foo.capitalize="state.foo" @update:count="btnClick" /> -->
   </div>
 </template>
 
