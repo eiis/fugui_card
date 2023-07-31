@@ -140,9 +140,6 @@ onMounted(() => {
           <button class="bg-[#44bd87] hover:bg-[#44bd87] rounded px-2 hover:scale-110" @click="toggleDark">
             {{ isLight }}
           </button>
-          <button class="px-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
-            Click me!
-          </button>
         </div> -->
         <div>
           <slot name="header" message="hello" />
@@ -158,10 +155,13 @@ onMounted(() => {
         </p>
         <!-- <p>defineModels state: {{ foo }}</p>
         <p>defineModels state: {{ count }}</p> -->
-        <p>{{ title }}</p>
         <!-- <button class="px-4 bg-red-500 rounded-md hover:bg-red-700 motion-safe:hover:scale-110" @click="onClick">
           Increment child state
         </button> -->
+        <button class="w-[160px] mb-4 px-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
+          Click me!
+        </button>
+        <p>{{ title }}</p>
         <button class="w-[160px] px-4 mb-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="buttonClick">
           Change child title
         </button>
@@ -170,8 +170,10 @@ onMounted(() => {
         </button>
       </div>
     </div>
-    <Modal ref="modal">
-      <p>This is a global modal!</p>
-    </Modal>
+    <teleport to="#app">
+      <Modal ref="modal">
+        <p>This is a global modal!</p>
+      </Modal>
+    </teleport>
   </div>
 </template>
