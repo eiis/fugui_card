@@ -4,6 +4,8 @@ import type { Ref } from 'vue'
 import { computed, onMounted, ref } from 'vue'
 import { useDark, useDraggable } from '@vueuse/core'
 import { SwitchRoot, SwitchThumb } from 'radix-vue'
+
+import Modal from './Modal.vue'
 import iconUrl from '@/assets/vue.svg?component'
 
 const { title } = defineProps({
@@ -58,7 +60,7 @@ console.log('iconUrl', iconUrl)
 
 const el: Ref<HTMLElement | SVGElement | null> = ref(null)
 const { x, y, style } = useDraggable(el, {
-  initialValue: { x: 40, y: 40 },
+  initialValue: { x: 500, y: 40 },
 })
 const isDark = useDark() // true or false
 // const toggleDark = useToggle(isDark)
@@ -67,6 +69,8 @@ function toggleDark() {
   isDark.value = !isDark.value
   console.log('toggleDark', isDark.value)
 }
+
+const modal = ref<InstanceType<typeof Modal> | null>(null)
 
 const isLight = computed(() => {
   return !!isDark.value
@@ -93,6 +97,11 @@ function btnCkick() {
   if (partyElement.value)
     party.confetti(partyElement.value)
 }
+
+function ModalClick() {
+  console.log(modal.value)
+  modal.value.openModal()
+}
 onMounted(() => {
   partyElement.value = document.getElementById('party-element')
 })
@@ -112,7 +121,7 @@ onMounted(() => {
         <!-- <img class="h-12 w-12 " :src="iconUrl" alt="ChitChat Logo"> -->
         <iconUrl />
       </div>
-      <div class="group">
+      <div class="group flex flex-col">
         <div class="flex gap-2 items-center">
           <label className="text-white text-[15px] leading-none pr-[15px] select-none" for="airplane-mode">
             Airplane mode
@@ -153,10 +162,16 @@ onMounted(() => {
         <!-- <button class="px-4 bg-red-500 rounded-md hover:bg-red-700 motion-safe:hover:scale-110" @click="onClick">
           Increment child state
         </button> -->
-        <button class="px-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="buttonClick">
+        <button class="w-[160px] px-4 mb-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="buttonClick">
           Change child title
+        </button>
+        <button class="w-[160px] px-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="ModalClick">
+          Open Modal
         </button>
       </div>
     </div>
+    <Modal ref="modal">
+      <p>This is a global modal!</p>
+    </Modal>
   </div>
 </template>

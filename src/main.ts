@@ -1,7 +1,5 @@
 import './index.css'
 
-import { createApp } from 'vue'
-
 import App from './App.vue'
 
 // import now from '~build/time'
@@ -23,4 +21,7 @@ import App from './App.vue'
 // console.log(now)
 // console.log('github', github)
 
-createApp(App).mount('#app')
+const app = createApp(App)
+console.log('app', app)
+
+app.mount('#app')
