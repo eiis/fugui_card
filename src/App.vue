@@ -52,6 +52,8 @@ function add() {}
 function change() {
   state.value.title = 'huakai'
 }
+
+const initial = ref(1)
 // function change() {
 //   state.value.title = 'huakai'
 // }
@@ -60,23 +62,25 @@ function change() {
 <template>
   <div class="container mx-auto">
     <!-- <Home /> -->
-    <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo">
+    <HelloWorld v-model:count="state.count" v-model:foo="state.foo">
       <template #header>
         <p>slot_Header</p>
       </template>
       <template #default>
         <p>slot_default</p>
       </template>
-    </HelloWorld> -->
+    </HelloWorld>
     <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo" v-slot="slotProps">
       {{ slotProps.text }}
       {{ slotProps.count }}
     </HelloWorld> -->
-    <HelloWorld v-model:count="state.count" v-model:foo="state.foo" :title="state.title" @change="change">
+    <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo" :title="state.title" @change="change">
       <template #header="headerProps">
         {{ headerProps.message }}
       </template>
-    </HelloWorld>
+    </HelloWorld> -->
+    <!-- <TheCounter :initial="initial" /> -->
+    <!-- <Popover /> -->
     <!-- <HelloWorld v-model:count="state.count" v-model:foo.capitalize="state.foo" @update:count="btnClick" /> -->
   </div>
 </template>

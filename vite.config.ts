@@ -13,7 +13,6 @@ import Components from 'unplugin-vue-components/vite'
 
 import VueMacros from 'unplugin-vue-macros/vite'
 import svgLoader from 'vite-svg-loader'
-import { setPreLoadFile } from './src/plugin/vite-plugin-preload'
 
 // // 根据 NODE_ENV 加载 .env 文件
 // const envFile = `.env.${process.env.NODE_ENV}`;
@@ -86,12 +85,12 @@ export default defineConfig(({ command, mode }) => {
         dts: 'src/components.d.ts',
       }),
       // 设置预加载文件，提升页面首次加载速度（仅开发环境需要）
-      mode === 'development' && setPreLoadFile({
-        pathList: [ // 需要提前加载的资源目录
-          './src/components/',
-        ],
-        preFix: 'https://127.0.0.1:5173', // 项目根路径
-      }),
+      // mode === 'development' && setPreLoadFile({
+      //   pathList: [ // 需要提前加载的资源目录
+      //     './src/components/',
+      //   ],
+      //   preFix: 'https://127.0.0.1:5173', // 项目根路径
+      // }),
       svgLoader(),
       // VueMacros({
       //   plugins: {

@@ -23,9 +23,7 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": [
-    // "src/*"
-  ],
+  "include": ["src/**/*.ts"],
   "exclude": ["dist", "node_modules"],
   "references": [
     {

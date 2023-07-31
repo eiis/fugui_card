@@ -3,7 +3,7 @@ import party from 'party-js'
 import type { Ref } from 'vue'
 import { computed, onMounted, ref } from 'vue'
 import { useDark, useDraggable } from '@vueuse/core'
-
+import { SwitchRoot, SwitchThumb } from 'radix-vue'
 import iconUrl from '@/assets/vue.svg?component'
 
 const { title } = defineProps({
@@ -69,7 +69,7 @@ function toggleDark() {
 }
 
 const isLight = computed(() => {
-  return isDark.value ? 'Dark' : 'Light'
+  return !!isDark.value
 })
 
 console.log('title', title)
@@ -113,14 +113,28 @@ onMounted(() => {
         <iconUrl />
       </div>
       <div class="group">
-        <div class="flex items-center justify-between">
+        <div class="flex gap-2 items-center">
+          <label className="text-white text-[15px] leading-none pr-[15px] select-none" for="airplane-mode">
+            Airplane mode
+          </label>
+          <SwitchRoot
+            id="airplane-mode"
+            v-model:open="isDark"
+            class="w-[42px] h-[25px] focus-within:outline focus-within:outline-black flex bg-black/50 shadow-sm rounded-full relative data-[state=checked]:bg-black cursor-default"
+          >
+            <SwitchThumb
+              class="block w-[21px] h-[21px] my-auto bg-white shadow-sm rounded-full transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]"
+            />
+          </SwitchRoot>
+        </div>
+        <!-- <div class="flex items-center justify-between">
           <button class="bg-[#44bd87] hover:bg-[#44bd87] rounded px-2 hover:scale-110" @click="toggleDark">
             {{ isLight }}
           </button>
           <button class="px-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
             Click me!
           </button>
-        </div>
+        </div> -->
         <div>
           <slot name="header" message="hello" />
         </div>
