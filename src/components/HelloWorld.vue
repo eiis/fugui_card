@@ -100,7 +100,7 @@ function btnCkick() {
 
 function ModalClick() {
   console.log(modal.value)
-  modal.value.openModal()
+  modal.value?.openModal()
 }
 onMounted(() => {
   partyElement.value = document.getElementById('party-element')
