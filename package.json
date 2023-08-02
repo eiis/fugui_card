@@ -21,9 +21,11 @@
     "dotenv": "^16.3.1",
     "party-js": "^2.2.0",
     "radix-vue": "^0.1.16",
+    "unplugin-vue-router": "^0.6.4",
     "vite-plugin-info": "^0.4.1",
     "vue": "^3.3.4",
-    "vue-demi": "^0.14.5"
+    "vue-demi": "^0.14.5",
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.8",

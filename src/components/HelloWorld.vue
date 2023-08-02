@@ -175,5 +175,6 @@ onMounted(() => {
         <p>This is a global modal!</p>
       </Modal>
     </teleport>
+    <!-- <Gpt /> -->
   </div>
 </template>

@@ -2,6 +2,10 @@ import './index.css'
 
 import App from './App.vue'
 
+import router from '@/routers'
+
+console.log(router, 'router')
+
 // import now from '~build/time'
 // import {
 //   CI,
@@ -23,5 +27,7 @@ import App from './App.vue'
 
 const app = createApp(App)
 console.log('app', app)
+
+app.use(router)
 
 app.mount('#app')

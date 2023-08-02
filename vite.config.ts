@@ -1,10 +1,13 @@
 import path from 'node:path'
-import alias from '@rollup/plugin-alias'
+
+// import alias from '@rollup/plugin-alias'
 import AutoImport from 'unplugin-auto-import/vite'
 import Vue from '@vitejs/plugin-vue'
 import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import mkcert from 'vite-plugin-mkcert'
+
+import VueRouter from 'unplugin-vue-router/vite'
 
 // 自动导入组件
 import Components from 'unplugin-vue-components/vite'
@@ -36,6 +39,7 @@ export default defineConfig(({ command, mode }) => {
   return {
     // base: './',
     plugins: [
+      VueRouter(),
       VueMacros({
         plugins: {
           vue: Vue({
@@ -48,11 +52,11 @@ export default defineConfig(({ command, mode }) => {
       // basicSsl(),
       mkcert(),
       // vitePluginSemanticChunks(),
-      alias({
-        entries: [
-          { find: '@', replacement: '/src' },
-        ],
-      }),
+      // alias({
+      //   entries: [
+      //     { find: '@', replacement: 'src' },
+      //   ],
+      // }),
       createHtmlPlugin({
         inject: {
           data: {
@@ -111,7 +115,7 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       alias: {
         // 将 `@` 解析为 `/src` 目录
-        // '@': path.resolve(__dirname, 'src')
+        '@': path.resolve(__dirname, 'src'),
       },
     },
     server: {
@@ -126,25 +130,25 @@ export default defineConfig(({ command, mode }) => {
           main: path.resolve(__dirname, 'index.html'),
           // vendor: path.resolve(__dirname, 'src/vendor.js')
         },
-        output: {
-          manualChunks: {
-          },
-          assetFileNames: (assetInfo) => {
-            console.log('assetInfo', assetInfo.name)
-            if (assetInfo.name.endsWith('.jpeg') || assetInfo.name.endsWith('.png') || assetInfo.name.endsWith('.jpg'))
-              return 'images/[name][extname]'
+        // output: {
+        //   manualChunks: {
+        //   },
+        //   assetFileNames: (assetInfo) => {
+        //     console.log('assetInfo', assetInfo.name)
+        //     if (assetInfo.name.endsWith('.jpeg') || assetInfo.name.endsWith('.png') || assetInfo.name.endsWith('.jpg'))
+        //       return 'images/[name][extname]'
 
-            else if (assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.woff') || assetInfo.name.endsWith('.woff2') || assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.eot'))
-              return 'font/[name][extname]'
+        //     else if (assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.woff') || assetInfo.name.endsWith('.woff2') || assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.eot'))
+        //       return 'font/[name][extname]'
 
-            else if (assetInfo.name.endsWith('.svg'))
-              return 'svg/[name][extname]'
-            else if (assetInfo.name.endsWith('.css'))
-              return 'css/[name][extname]'
-            else
-              return '[name][extname]'
-          },
-        },
+        //     else if (assetInfo.name.endsWith('.svg'))
+        //       return 'svg/[name][extname]'
+        //     else if (assetInfo.name.endsWith('.css'))
+        //       return 'css/[name][extname]'
+        //     else
+        //       return '[name][extname]'
+        //   },
+        // },
       },
       // sourcemap: true
     },

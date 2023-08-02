@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "types": [
       "vitest",
       "vue/ref-macros",
@@ -23,13 +27,16 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["dist", "node_modules"],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "vite.config.ts"
   ],
+  "exclude": ["dist", "node_modules"],
   "vueCompilerOptions": {
     "plugins": [
       "@vue-macros/volar/define-props",
@@ -41,6 +48,5 @@
       "@vue-macros/volar/define-slots",
       "@vue-macros/volar/export-props"
     ]
-    // ...
   }
 }
