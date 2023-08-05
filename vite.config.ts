@@ -126,10 +126,25 @@ export default defineConfig(({ command, mode }) => {
       target: 'es2015',
       // 将 rollupInputOptions 改为 rollupOptions
       rollupOptions: {
-        input: {
-          main: path.resolve(__dirname, 'index.html'),
-          // vendor: path.resolve(__dirname, 'src/vendor.js')
+
+        output: {
+          manualChunks(id) {
+            if (id.includes('lodash'))
+              return 'lodash'
+          },
+          // manualChunks: {
+          // 将 React 相关库打包成单独的 chunk 中
+          // 'react-vendor': ['react', 'react-dom'],
+          // 将 Lodash 库的代码单独打包
+          // lodash: ['lodash-es'],
+          // 将组件库的代码打包
+          // 'library': ['antd', '@arco-design/web-react'],
+          // },
         },
+        // input: {
+        //   main: path.resolve(__dirname, 'index.html'),
+        //   vendor: path.resolve(__dirname, 'src/vendor.js')
+        // },
         // output: {
         //   manualChunks: {
         //   },

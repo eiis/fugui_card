@@ -6,6 +6,8 @@ import router from '@/routers'
 
 console.log(router, 'router')
 
+console.log(1)
+
 // import now from '~build/time'
 // import {
 //   CI,
