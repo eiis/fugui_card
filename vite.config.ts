@@ -3,9 +3,10 @@ import path from 'node:path'
 // import alias from '@rollup/plugin-alias'
 import AutoImport from 'unplugin-auto-import/vite'
 import Vue from '@vitejs/plugin-vue'
-import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
+import { type PluginOption, defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import mkcert from 'vite-plugin-mkcert'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 import VueRouter from 'unplugin-vue-router/vite'
 
@@ -96,6 +97,13 @@ export default defineConfig(({ command, mode }) => {
       //   preFix: 'https://127.0.0.1:5173', // 项目根路径
       // }),
       svgLoader(),
+      visualizer(
+        {
+          open: false,
+          gzipSize: true,
+          brotliSize: true,
+        },
+      ) as PluginOption,
       // VueMacros({
       //   plugins: {
       //     vue: Vue(),

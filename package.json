@@ -23,6 +23,7 @@
     "lodash-es": "^4.17.21",
     "party-js": "^2.2.0",
     "radix-vue": "^0.1.16",
+    "rollup-plugin-visualizer": "^5.9.2",
     "unplugin-vue-router": "^0.6.4",
     "vite-plugin-info": "^0.4.1",
     "vue": "^3.3.4",

@@ -13,6 +13,11 @@ dist-ssr
 *.local
 .env.development
 .env.production
+stats.html
+
+# Editor specific files
+.idea
+.vscode
 
 # Editor directories and files
 .vscode/*
