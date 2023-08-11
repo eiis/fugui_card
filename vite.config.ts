@@ -38,6 +38,10 @@ export default defineConfig(({ command, mode }) => {
   // console.log('process.env.BASE_ENV', process.env)
 
   return {
+    // 剔除 options_api
+    // define: {
+    //   __VUE_OPTIONS_API__: false,
+    // },
     // base: './',
     plugins: [
       VueRouter(),
