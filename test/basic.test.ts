@@ -17,9 +17,9 @@ describe('TheCounter.vue', () => {
   // 测试组件是否可以接受点击事件
   it('should be interactive', async () => {
     // 创建一个TheCounter组件，并传入initial属性
-    const wrapper = mount(TheCounter, { props: { initial: 0 } })
+    const wrapper = mount(TheCounter, { props: { initial: 10 } })
     // 断言wrapper中text()的值是否包含'0'
-    expect(wrapper.text()).toContain('0')
+    expect(wrapper.text()).toContain('10')
 
     // 断言wrapper中.inc组件是否存在
     expect(wrapper.find('.inc').exists()).toBe(true)
@@ -30,13 +30,13 @@ describe('TheCounter.vue', () => {
     // 触发.inc组件的点击事件
     await wrapper.get('.inc').trigger('click')
 
-    // 断言wrapper中text()的值是否包含'1'
-    expect(wrapper.text()).toContain('1')
+    // 断言wrapper中text()的值是否等于'11'
+    expect(wrapper.text()).toContain('11')
 
     // 触发.dec组件的点击事件
     await wrapper.get('.dec').trigger('click')
 
-    // 断言wrapper中text()的值是否包含'0'
-    expect(wrapper.text()).toContain('0')
+    // 断言wrapper中text()的值是否等于'10'
+    expect(wrapper.text()).toContain('10')
   })
 })

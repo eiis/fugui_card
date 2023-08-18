@@ -1,5 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TheCounter.vue > should render 1`] = `"<div>10 <button class=\\"inc\\"> + </button><button class=\\"dec\\"> - </button></div>"`;
-
-exports[`tests > should works 1`] = `2`;
+exports[`TheCounter.vue > should render 1`] = `"<div><span class=\\"count-value\\">10</span><button class=\\"inc\\"> + </button><button class=\\"dec\\"> - </button></div>"`;

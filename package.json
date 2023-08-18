@@ -8,7 +8,7 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "commit": "cz",
-    "test": "vitest",
+    "test": "vitest -u",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
