@@ -14,9 +14,7 @@ lodash.debounce(() => {
 
 // 导入的模块会单独打包为一个chunk
 const modules = import.meta.glob('@/components/HelloWorld.vue')
-console.log(modules)
-
-console.log('1')
+console.log(modules, 'modules')
 
 // console.log('2', h(Popover))
 
@@ -25,7 +23,7 @@ console.log('1')
 const HelloWorld = defineAsyncComponent({
   loader: () => new Promise<Component>(resolve =>
     setTimeout(() =>
-      resolve(modules['./components/HelloWorld.vue']() as Promise<{ default: Component }>)
+      resolve(modules['/src/components/HelloWorld.vue']() as Promise<{ default: Component }>)
     , 1000),
   ),
   loadingComponent: defineComponent({
@@ -92,7 +90,7 @@ const initial = ref(1)
     </HelloWorld> -->
   <!-- <TheCounter /> -->
   <!-- <Popover /> -->
-  <!-- <HelloWorld v-model:count="state.count" v-model:foo.capitalize="state.foo" @update:count="btnClick" /> -->
+  <HelloWorld v-model:count="state.count" v-model:foo.capitalize="state.foo" @update:count="btnClick" />
 
   <!-- <router-link to="/">
       Go to Home
@@ -103,7 +101,7 @@ const initial = ref(1)
 
   <!-- 路由出口 -->
   <!-- 路由匹配到的组件将渲染在这里 -->
-  <router-view />
+  <!-- <router-view /> -->
   <!-- </div> -->
 </template>
 

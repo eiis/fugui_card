@@ -2,9 +2,9 @@ import './index.css'
 
 import App from './App.vue'
 
-import router from '@/routers'
+// import router from '@/routers'
 
-console.log(router, 'router')
+// console.log(router, 'router')
 
 console.log(1)
 
@@ -30,6 +30,6 @@ console.log(1)
 const app = createApp(App)
 console.log('app', app)
 
-app.use(router)
+// app.use(router)
 
 app.mount('#app')

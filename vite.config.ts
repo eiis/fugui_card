@@ -1,4 +1,4 @@
-import path from 'node:path'
+import path, { resolve } from 'node:path'
 
 // import alias from '@rollup/plugin-alias'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -138,46 +138,19 @@ export default defineConfig(({ command, mode }) => {
       target: 'es2015',
       // 将 rollupInputOptions 改为 rollupOptions
       rollupOptions: {
-
+        // 入口
+        input: {
+          main: resolve(__dirname, 'index.html'),
+        },
         output: {
           manualChunks(id) {
             if (id.includes('lodash'))
               return 'lodash'
+            // if (id.includes('vue-router'))
+            //   return 'vendor'
           },
-          // manualChunks: {
-          // 将 React 相关库打包成单独的 chunk 中
-          // 'react-vendor': ['react', 'react-dom'],
-          // 将 Lodash 库的代码单独打包
-          // lodash: ['lodash-es'],
-          // 将组件库的代码打包
-          // 'library': ['antd', '@arco-design/web-react'],
-          // },
         },
-        // input: {
-        //   main: path.resolve(__dirname, 'index.html'),
-        //   vendor: path.resolve(__dirname, 'src/vendor.js')
-        // },
-        // output: {
-        //   manualChunks: {
-        //   },
-        //   assetFileNames: (assetInfo) => {
-        //     console.log('assetInfo', assetInfo.name)
-        //     if (assetInfo.name.endsWith('.jpeg') || assetInfo.name.endsWith('.png') || assetInfo.name.endsWith('.jpg'))
-        //       return 'images/[name][extname]'
-
-        //     else if (assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.woff') || assetInfo.name.endsWith('.woff2') || assetInfo.name.endsWith('.ttf') || assetInfo.name.endsWith('.eot'))
-        //       return 'font/[name][extname]'
-
-        //     else if (assetInfo.name.endsWith('.svg'))
-        //       return 'svg/[name][extname]'
-        //     else if (assetInfo.name.endsWith('.css'))
-        //       return 'css/[name][extname]'
-        //     else
-        //       return '[name][extname]'
-        //   },
-        // },
       },
-      // sourcemap: true
     },
   }
 })
