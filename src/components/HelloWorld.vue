@@ -23,8 +23,14 @@ const { title } = defineProps({
 
 const emit = defineEmits(['change'])
 
-console.log('iconUrl', iconUrl)
+// console.log('iconUrl', iconUrl)
+// console.log(import.meta.env, 'import.meta.env')
 
+// const isProduction = import.meta.env.MODE === 'production'
+
+// const imagePath = '../assets'
+
+console.log(new URL('../assets/vue.svg', import.meta.url).href)
 // 需要在eslint中配置ecmaVersion为2020
 // const apiPrefix = import.meta.env.VITE_API_PREFIX;
 
@@ -117,8 +123,9 @@ onMounted(() => {
       style="position: fixed"
       class="p-6 max-w-sm mx-auto bg-red-700 rounded-xl shadow-md flex items-center justify-center space-x-4 dark:bg-black"
     >
+      <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
       <div class="w-12 h-12 flex justify-center items-center flex-shrink-0">
-        <!-- <img class="h-12 w-12 " :src="iconUrl" alt="ChitChat Logo"> -->
+        <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
         <iconUrl />
       </div>
       <div class="group flex flex-col">

@@ -1,4 +1,5 @@
-import path, { resolve } from 'node:path'
+import path, { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 // import alias from '@rollup/plugin-alias'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -28,6 +29,12 @@ import svgLoader from 'vite-svg-loader'
 
 // 你现在可以通过 process.env 访问到环境变量
 // console.log(process.env.VITE_APP_TITLE);
+
+const __filename = fileURLToPath(import.meta.url)
+console.log('__filename', __filename) // 输出：/path/to/current/file.mjs
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+console.log('__dirname', __dirname) // 输出：/path/to/current/file
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
