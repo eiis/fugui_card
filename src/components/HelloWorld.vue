@@ -114,7 +114,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center w-full m-8 ">
+  <div class="flex items-center justify-center w-full m-8 blur-sm md:blur-none">
     <!-- hover:bg-white  -->
     <div
       id="party-element"
@@ -129,7 +129,7 @@ onMounted(() => {
         <iconUrl />
       </div>
       <div class="group flex flex-col">
-        <div class="flex gap-2 items-center">
+        <div class="flex gap-2 items-center justify-center">
           <label className="text-white text-[15px] leading-none pr-[15px] select-none" for="airplane-mode">
             Airplane mode
           </label>
@@ -157,24 +157,26 @@ onMounted(() => {
         <div class="font-custom text-xl font-medium text-black group-hover:text-gray-900">
           Vite+Vue
         </div>
-        <p class="text-gray-500">
+        <div class="text-gray-500">
           You have a new message
-        </p>
+        </div>
         <!-- <p>defineModels state: {{ foo }}</p>
         <p>defineModels state: {{ count }}</p> -->
         <!-- <button class="px-4 bg-red-500 rounded-md hover:bg-red-700 motion-safe:hover:scale-110" @click="onClick">
           Increment child state
         </button> -->
-        <button class="w-[160px] mb-4 px-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
-          Click me!
-        </button>
-        <p>{{ title }}</p>
-        <button class="w-[160px] px-4 mb-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="buttonClick">
+        <div class="flex">
+          <p>{{ title }}</p>
+          <button class="w-[100px] mb-4 ml-4 px-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
+            Click me!
+          </button>
+        </div>
+        <!-- <button class="w-[160px] px-4 mb-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="buttonClick">
           Change child title
         </button>
         <button class="w-[160px] px-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="ModalClick">
           Open Modal
-        </button>
+        </button> -->
       </div>
     </div>
     <teleport to="#app">
