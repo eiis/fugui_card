@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
-import { defineAsyncComponent, defineComponent, h, onBeforeMount, onMounted, ref } from 'vue'
+import { defineAsyncComponent, defineComponent, onBeforeMount, onMounted, ref } from 'vue'
 import lodash from 'lodash-es'
 
 let a = 1
@@ -41,8 +41,16 @@ const HelloWorld = defineAsyncComponent({
       // 从 setup 函数返回一个函数
       return () => {
         // 这个函数会被作为渲染函数，它返回了一个由 h 函数创建的Vnodes
-        return h('div', { class: 'h-full w-full flex items-center justify-center', ref: elRef }, 'Loading')
+        // return h('div', { class: 'h-full w-full flex i-svg-spinners-blocks-shuffle-2 items-center justify-center', ref: elRef }, 'Loading')
         // return h(Popover)
+        return h('div', {
+          class: 'h-screen w-screen flex text-yellow items-center justify-center',
+        }, [
+          h('div', {
+            class: 'w-10 h-10 text-current i-svg-spinners-blocks-shuffle-2',
+            ref: elRef,
+          }),
+        ])
       }
     },
   }),

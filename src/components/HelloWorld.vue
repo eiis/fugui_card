@@ -182,11 +182,11 @@ onMounted(() => {
         <!-- <button class="px-4 bg-red-500 rounded-md hover:bg-red-700 motion-safe:hover:scale-110" @click="onClick">
           Increment child state
         </button> -->
-        <div class="text-2xl m-4 i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" />
+        <div class="text-2xl m-4 i-streamline-emojis:backhand-index-pointing-down-1" />
         <div class="flex items-center justify-between">
           <!-- <p>{{ title }}</p> -->
           <!-- <div class="text-2xl i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" /> -->
-          <button class="px-4 bg-red rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
+          <button class="px-4  rounded-md bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
             Subscribe Me!
           </button>
         </div>
