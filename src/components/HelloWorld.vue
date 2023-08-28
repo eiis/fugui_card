@@ -74,12 +74,13 @@ const { x, y, style } = useDraggable(el, {
 // const toggleDark = useToggle(isDark)
 
 const isDark = useDark()
-// const toggleDark = useToggle(isDark)
+const toggleDark = useToggle(isDark)
+// console.log('toggleDark', isDark.value)
 
-function toggleDark() {
-  isDark.value = !isDark.value
-  console.log('toggleDark', isDark.value)
-}
+// function toggleDark() {
+//   isDark.value = !isDark.value
+//   console.log('toggleDark', isDark.value)
+// }
 
 const modal = ref<InstanceType<typeof Modal> | null>(null)
 
@@ -128,7 +129,7 @@ onMounted(() => {
       id="party-element"
       ref="el"
       un-bg="white"
-      class="overflow-hidden shadow-xl rounded-xl md:flex items-center justify-center"
+      class="overflow-hidden shadow-xl rounded-xl md:flex"
     >
       <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
       <div class="md:shrink-0">
