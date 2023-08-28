@@ -136,7 +136,7 @@ onMounted(() => {
         <!-- <iconUrl /> -->
         <!-- <div class="w-2em h-2em i-logos:vue transform transition-800 hover:rotate-180 text-3xl text-current" /> -->
       </div>
-      <div class="group flex flex-col px-8 h-48 justify-center">
+      <div class="group relative flex flex-col px-8 h-48 items-center justify-center">
         <div class="flex gap-2 items-center justify-center">
           <!-- <div un-text="red" class="my-blue">
             Hello
@@ -166,22 +166,27 @@ onMounted(() => {
         <div>
           <slot text="greetingMessage" :count="1" />
         </div>
-        <div class="flex items-center justify-between font-custom text-xl font-medium text-black group-hover:text-gray-900">
-          <p>Vite+Vue</p>
-          <button class="i-carbon-sun dark:i-carbon-moon" @click="toggleDark()" />
+        <!-- <button class="absolute top-0 right-0 text-2xl i-carbon-sun dark:i-carbon-moon" @click="toggleDark()" /> -->
+        <div class="flex items-center justify-center text-black">
+          <!-- <p>Vite+Vue</p> -->
+          <div class="font-custom text-xl font-mediu">
+            I am FuGui
+          </div>
+          <button class="absolute top-0 right-0 text-2xl i-carbon-sun dark:i-carbon-moon" @click="toggleDark()" />
         </div>
-        <div class="text-gray-500">
-          You have a new message
-        </div>
+        <!-- <div class="font-custom text-xl font-medium text-black">
+          I am FuGui
+        </div> -->
         <!-- <p>defineModels state: {{ foo }}</p>
         <p>defineModels state: {{ count }}</p> -->
         <!-- <button class="px-4 bg-red-500 rounded-md hover:bg-red-700 motion-safe:hover:scale-110" @click="onClick">
           Increment child state
         </button> -->
+        <div class="text-2xl m-4 i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" />
         <div class="flex items-center justify-between">
           <!-- <p>{{ title }}</p> -->
-          <div class="text-2xl i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" />
-          <button class="w-[100px]  px-4 bg-red rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
+          <!-- <div class="text-2xl i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" /> -->
+          <button class="px-4 bg-red rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
             Click me!
           </button>
         </div>

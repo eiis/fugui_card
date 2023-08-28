@@ -18,7 +18,10 @@ export default defineConfig({
     }),
     presetUno(),
     presetWind(),
-    presetIcons(),
+    presetIcons({
+      scale: 1.2,
+      warn: true,
+    }),
   ],
   rules: [
     ['text-red', { color: 'red' }],
