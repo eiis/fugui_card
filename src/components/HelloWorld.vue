@@ -70,8 +70,6 @@ const el: Ref<HTMLElement | SVGElement | null> = ref(null)
 const { x, y, style } = useDraggable(el, {
   initialValue: { x: 500, y: 300 },
 })
-// const isDark = useDark() // true or false
-// const toggleDark = useToggle(isDark)
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
