@@ -5,7 +5,8 @@ import { computed, onMounted, ref } from 'vue'
 import { useDark } from '@vueuse/core'
 
 import Modal from './Modal.vue'
-import iconUrl from '@/assets/vue.svg?component'
+
+// import iconUrl from '@/assets/vue.svg?component'
 
 const { title } = defineProps({
   title: {
@@ -29,7 +30,9 @@ const emit = defineEmits(['change'])
 
 // const imagePath = '../assets'
 
-console.log(new URL('../assets/vue.svg', import.meta.url).href)
+console.log(new URL('../assets/img/wChat.png', import.meta.url).href)
+
+const img = new URL('../assets/img/wChat.png', import.meta.url).href
 // 需要在eslint中配置ecmaVersion为2020
 // const apiPrefix = import.meta.env.VITE_API_PREFIX;
 
@@ -64,9 +67,9 @@ console.log(new URL('../assets/vue.svg', import.meta.url).href)
 // })
 
 const el: Ref<HTMLElement | SVGElement | null> = ref(null)
-// const { x, y, style } = useDraggable(el, {
-//   initialValue: { x: 500, y: 40 },
-// })
+const { x, y, style } = useDraggable(el, {
+  initialValue: { x: 500, y: 300 },
+})
 const isDark = useDark() // true or false
 // const toggleDark = useToggle(isDark)
 
@@ -113,31 +116,31 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center w-screen h-screen  blur-sm md:blur-none">
+  <div class="flex items-center justify-center w-screen h-screen  md:blur-none">
     <!-- :style="style" -->
     <!-- style="position: fixed" -->
     <div
       id="party-element"
       ref="el"
-      un-bg="[#44bd87] dark:[#1e1e20]"
-      un-rounded="xl"
-      un-p="6"
-      class="max-w-sm mx-auto shadow-md flex items-center justify-center space-x-4"
+      :style="style"
+      style="position: fixed"
+      un-bg="white dark:gray-600"
+      class="max-w-md mx-auto shadow-md overflow-hidden md:max-w-2xl rounded-xl md:flex items-center justify-center"
     >
       <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
-      <div class="text-yellow w-12 h-12 flex justify-center items-center flex-shrink-0">
-        <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
-        <iconUrl />
-        <!-- <div class="i-carbon:airport-01 text-3xl text-current" /> -->
+      <div class="md:shrink-0">
+        <img class="w-full h-48 object-cover md:h-full md:w-48" :src="img" alt="ChitChat Logo">
+        <!-- <iconUrl /> -->
+        <!-- <div class="w-2em h-2em i-logos:vue transform transition-800 hover:rotate-180 text-3xl text-current" /> -->
       </div>
-      <div class="group flex flex-col">
+      <div class="group flex flex-col px-8 h-48 justify-center">
         <div class="flex gap-2 items-center justify-center">
           <!-- <div un-text="red" class="my-blue">
             Hello
           </div> -->
-          <label className="text-white text-[15px] leading-none pr-[15px] select-none" for="airplane-mode">
+          <!-- <label className="text-white text-[15px] leading-none pr-[15px] select-none" for="airplane-mode">
             Airplane mode
-          </label>
+          </label> -->
           <!-- <SwitchRoot
             id="airplane-mode"
             v-model:open="isDark"
@@ -147,7 +150,7 @@ onMounted(() => {
               class="block w-[21px] h-[21px] my-auto bg-white shadow-sm rounded-full transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]"
             />
           </SwitchRoot> -->
-          <button class="i-carbon-sun dark:i-carbon-moon" @click="toggleDark" />
+          <!-- <button class="i-carbon-sun dark:i-carbon-moon" @click="toggleDark" /> -->
         </div>
         <!-- <div class="flex items-center justify-between">
           <button class="bg-[#44bd87] hover:bg-[#44bd87] rounded px-2 hover:scale-110" @click="toggleDark">
@@ -160,8 +163,9 @@ onMounted(() => {
         <div>
           <slot text="greetingMessage" :count="1" />
         </div>
-        <div class="font-custom text-xl font-medium text-black group-hover:text-gray-900">
-          Vite+Vue
+        <div class="flex items-center justify-between font-custom text-xl font-medium text-black group-hover:text-gray-900">
+          <p>Vite+Vue</p>
+          <button class="i-carbon-sun dark:i-carbon-moon" @click="toggleDark" />
         </div>
         <div class="text-gray-500">
           You have a new message
@@ -171,10 +175,10 @@ onMounted(() => {
         <!-- <button class="px-4 bg-red-500 rounded-md hover:bg-red-700 motion-safe:hover:scale-110" @click="onClick">
           Increment child state
         </button> -->
-        <div class="flex">
+        <div class="flex items-center justify-between">
           <!-- <p>{{ title }}</p> -->
           <div class="text-2xl i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" />
-          <button class="w-[100px] mb-4 ml-4 px-4 bg-red rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
+          <button class="w-[100px]  px-4 bg-red rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
             Click me!
           </button>
         </div>
