@@ -119,13 +119,13 @@ onMounted(() => {
   <div class="flex items-center justify-center w-screen h-screen  md:blur-none">
     <!-- :style="style" -->
     <!-- style="position: fixed" -->
+    <!-- :style="style"
+      style="position: fixed" -->
     <div
       id="party-element"
       ref="el"
-      :style="style"
-      style="position: fixed"
       un-bg="white dark:gray-600"
-      class="max-w-md mx-auto shadow-md overflow-hidden md:max-w-2xl rounded-xl md:flex items-center justify-center"
+      class="shadow-md overflow-hidden md:max-w-2xl rounded-xl md:flex items-center justify-center"
     >
       <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
       <div class="md:shrink-0">
