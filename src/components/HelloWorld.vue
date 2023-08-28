@@ -175,7 +175,7 @@ onMounted(() => {
           <button class="absolute top-1 right-1 text-2xl i-carbon-sun dark:i-carbon-moon" @click="toggleDark()" />
         </div>
         <!-- <div class="font-custom text-xl font-medium text-black">
-          I am FuGui
+          I am FuGu
         </div> -->
         <!-- <p>defineModels state: {{ foo }}</p>
         <p>defineModels state: {{ count }}</p> -->
