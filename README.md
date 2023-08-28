@@ -1,3 +1,3 @@
-# Vue 3 + TypeScript + Vite + unocss
+# Vue 3 + TypeScript + Vite + unoCSS
 
 ## info-card
