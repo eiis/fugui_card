@@ -130,7 +130,7 @@ onMounted(() => {
     <div
       id="party-element"
       ref="el"
-      un-bg="white"
+      un-bg="white dark:slate-900"
       class="overflow-hidden shadow-xl rounded-xl md:flex"
     >
       <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
@@ -172,8 +172,10 @@ onMounted(() => {
         <!-- <button class="absolute top-0 right-0 text-2xl i-carbon-sun dark:i-carbon-moon" @click="toggleDark()" /> -->
         <div class="flex items-center justify-center text-black">
           <!-- <p>Vite+Vue</p> -->
-          <div class="font-custom text-xl font-mediu">
-            I am FuGui
+          <div class="flex font-custom dark:text-white text-xl font-mediu">
+            <p class="hover:scale-110 hover:px-4">
+              I am FuGui
+            </p>
           </div>
           <button class="absolute top-1 right-1 text-2xl i-carbon-sun dark:i-carbon-moon" @click="toggleDark()" />
         </div>
@@ -189,7 +191,7 @@ onMounted(() => {
         <div class="flex items-center justify-between">
           <!-- <p>{{ title }}</p> -->
           <!-- <div class="text-2xl i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" /> -->
-          <button class="px-4  rounded-md bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
+          <button class="px-4 rounded-md bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
             Subscribe Me!
           </button>
         </div>
