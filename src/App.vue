@@ -69,9 +69,9 @@ const initial = ref(1)
 </script>
 
 <template>
-  <!-- <div class="container mx-auto"> -->
-  <!-- <Home /> -->
-  <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo" @change="change">
+  <div class="container">
+    <!-- <Home /> -->
+    <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo" @change="change">
       <template #header>
         <p>slot_Header</p>
       </template>
@@ -79,18 +79,18 @@ const initial = ref(1)
         <p>slot_default</p>
       </template>
     </HelloWorld> -->
-  <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo" v-slot="slotProps">
+    <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo" v-slot="slotProps">
       {{ slotProps.text }}
       {{ slotProps.count }}
     </HelloWorld> -->
-  <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo" :title="state.title" @change="change">
+    <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo" :title="state.title" @change="change">
       <template #header="headerProps">
         {{ headerProps.message }}
       </template>
     </HelloWorld> -->
-  <!-- <TheCounter /> -->
-  <!-- <Popover /> -->
-  <HelloWorld v-model:count="state.count" v-model:foo.capitalize="state.foo" @update:count="btnClick" />
+    <!-- <TheCounter /> -->
+    <!-- <Popover /> -->
+    <HelloWorld v-model:count="state.count" v-model:foo.capitalize="state.foo" @update:count="btnClick" />
 
   <!-- <router-link to="/">
       Go to Home
@@ -102,7 +102,7 @@ const initial = ref(1)
   <!-- 路由出口 -->
   <!-- 路由匹配到的组件将渲染在这里 -->
   <!-- <router-view /> -->
-  <!-- </div> -->
+  </div>
 </template>
 
 <style scoped>

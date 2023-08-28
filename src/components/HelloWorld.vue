@@ -70,7 +70,10 @@ const el: Ref<HTMLElement | SVGElement | null> = ref(null)
 const { x, y, style } = useDraggable(el, {
   initialValue: { x: 500, y: 300 },
 })
-const isDark = useDark() // true or false
+// const isDark = useDark() // true or false
+// const toggleDark = useToggle(isDark)
+
+const isDark = useDark()
 // const toggleDark = useToggle(isDark)
 
 function toggleDark() {
@@ -124,7 +127,7 @@ onMounted(() => {
     <div
       id="party-element"
       ref="el"
-      un-bg="white dark:gray-600"
+      un-bg="white"
       class="shadow-md overflow-hidden md:max-w-2xl rounded-xl md:flex items-center justify-center"
     >
       <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
@@ -165,7 +168,7 @@ onMounted(() => {
         </div>
         <div class="flex items-center justify-between font-custom text-xl font-medium text-black group-hover:text-gray-900">
           <p>Vite+Vue</p>
-          <button class="i-carbon-sun dark:i-carbon-moon" @click="toggleDark" />
+          <button class="i-carbon-sun dark:i-carbon-moon" @click="toggleDark()" />
         </div>
         <div class="text-gray-500">
           You have a new message
