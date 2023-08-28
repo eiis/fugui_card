@@ -172,7 +172,7 @@ onMounted(() => {
           <div class="font-custom text-xl font-mediu">
             I am FuGui
           </div>
-          <button class="absolute top-0 right-0 text-2xl i-carbon-sun dark:i-carbon-moon" @click="toggleDark()" />
+          <button class="absolute top-1 right-1 text-2xl i-carbon-sun dark:i-carbon-moon" @click="toggleDark()" />
         </div>
         <!-- <div class="font-custom text-xl font-medium text-black">
           I am FuGui
@@ -187,7 +187,7 @@ onMounted(() => {
           <!-- <p>{{ title }}</p> -->
           <!-- <div class="text-2xl i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" /> -->
           <button class="px-4 bg-red rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
-            Click me!
+            Subscribe Me!
           </button>
         </div>
         <!-- <button class="w-[160px] px-4 mb-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="buttonClick">
