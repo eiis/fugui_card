@@ -106,7 +106,7 @@ const partyElement: Ref<HTMLElement | null> = ref(null)
 function btnCkick() {
   if (partyElement.value) {
     party.confetti(partyElement.value, {
-      count: party.variation.range(0, 200),
+      count: party.variation.range(150, 200),
       size: party.variation.range(0.6, 1.4),
     })
   }
