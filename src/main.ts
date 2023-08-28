@@ -3,8 +3,10 @@ import './index.css'
 import App from './App.vue'
 
 // import router from '@/routers'
+import '@unocss/reset/tailwind.css'
 
 // console.log(router, 'router')
+import 'uno.css'
 
 console.log(1)
 

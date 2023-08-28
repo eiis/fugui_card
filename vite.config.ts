@@ -1,5 +1,6 @@
 import path, { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import UnoCSS from 'unocss/vite'
 
 // import alias from '@rollup/plugin-alias'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -59,6 +60,7 @@ export default defineConfig(({ command, mode }) => {
           }),
         },
       }),
+      UnoCSS(),
       splitVendorChunkPlugin(),
       // VueDevTools(),
       // basicSsl(),

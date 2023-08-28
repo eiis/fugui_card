@@ -2,8 +2,7 @@
 import party from 'party-js'
 import type { Ref } from 'vue'
 import { computed, onMounted, ref } from 'vue'
-import { useDark, useDraggable } from '@vueuse/core'
-import { SwitchRoot, SwitchThumb } from 'radix-vue'
+import { useDark } from '@vueuse/core'
 
 import Modal from './Modal.vue'
 import iconUrl from '@/assets/vue.svg?component'
@@ -65,9 +64,9 @@ console.log(new URL('../assets/vue.svg', import.meta.url).href)
 // })
 
 const el: Ref<HTMLElement | SVGElement | null> = ref(null)
-const { x, y, style } = useDraggable(el, {
-  initialValue: { x: 500, y: 40 },
-})
+// const { x, y, style } = useDraggable(el, {
+//   initialValue: { x: 500, y: 40 },
+// })
 const isDark = useDark() // true or false
 // const toggleDark = useToggle(isDark)
 
@@ -114,26 +113,32 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center w-full m-8 blur-sm md:blur-none">
-    <!-- hover:bg-white  -->
+  <div class="flex items-center justify-center w-screen h-screen  blur-sm md:blur-none">
+    <!-- :style="style" -->
+    <!-- style="position: fixed" -->
     <div
       id="party-element"
       ref="el"
-      :style="style"
-      style="position: fixed"
-      class="p-6 max-w-sm mx-auto bg-red-700 rounded-xl shadow-md flex items-center justify-center space-x-4 dark:bg-black"
+      un-bg="[#44bd87] dark:[#1e1e20]"
+      un-rounded="xl"
+      un-p="6"
+      class="max-w-sm mx-auto shadow-md flex items-center justify-center space-x-4"
     >
       <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
-      <div class="w-12 h-12 flex justify-center items-center flex-shrink-0">
+      <div class="text-yellow w-12 h-12 flex justify-center items-center flex-shrink-0">
         <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
         <iconUrl />
+        <!-- <div class="i-carbon:airport-01 text-3xl text-current" /> -->
       </div>
       <div class="group flex flex-col">
         <div class="flex gap-2 items-center justify-center">
+          <!-- <div un-text="red" class="my-blue">
+            Hello
+          </div> -->
           <label className="text-white text-[15px] leading-none pr-[15px] select-none" for="airplane-mode">
             Airplane mode
           </label>
-          <SwitchRoot
+          <!-- <SwitchRoot
             id="airplane-mode"
             v-model:open="isDark"
             class="w-[42px] h-[25px] focus-within:outline focus-within:outline-black flex bg-black/50 shadow-sm rounded-full relative data-[state=checked]:bg-black cursor-default"
@@ -141,7 +146,8 @@ onMounted(() => {
             <SwitchThumb
               class="block w-[21px] h-[21px] my-auto bg-white shadow-sm rounded-full transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]"
             />
-          </SwitchRoot>
+          </SwitchRoot> -->
+          <button class="i-carbon-sun dark:i-carbon-moon" @click="toggleDark" />
         </div>
         <!-- <div class="flex items-center justify-between">
           <button class="bg-[#44bd87] hover:bg-[#44bd87] rounded px-2 hover:scale-110" @click="toggleDark">
@@ -166,8 +172,9 @@ onMounted(() => {
           Increment child state
         </button> -->
         <div class="flex">
-          <p>{{ title }}</p>
-          <button class="w-[100px] mb-4 ml-4 px-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
+          <!-- <p>{{ title }}</p> -->
+          <div class="text-2xl i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" />
+          <button class="w-[100px] mb-4 ml-4 px-4 bg-red rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
             Click me!
           </button>
         </div>
