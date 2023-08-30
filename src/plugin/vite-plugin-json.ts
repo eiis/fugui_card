@@ -5,7 +5,6 @@ const fileRegex = /\.json$/
 const encoding = 'utf-8'
 
 async function getExisting(fileName: string) {
-  // console.log(fileName, 'fileName')
   return existsSync(fileName)
     ? await fs.readFile(fileName, encoding)
     : ''
@@ -38,8 +37,6 @@ async function replaceJsonString(code: string, id: string) {
 }
 
 export function VitePluginJsonDTS(): Plugin {
-  // console.log('VitePluginJsonDTS')
-
   return {
     name: 'vite-plugin-json-dts',
     enforce: 'pre',
@@ -48,19 +45,18 @@ export function VitePluginJsonDTS(): Plugin {
       // console.log('Build is starting...', options)
       // 例如：生成你的 .ts 文件
     },
+
     async transform(code: string, id: string) {
-      // console.log(id, 'code')
       if (fileRegex.test(id)) {
-        console.log(id, 'code')
+        console.log(id, code, 'code')
         const fileName = `${id}.d.ts`
         const [existingTyping, newTyping] = await Promise.all([
           getExisting(fileName),
           replaceJsonString(code, id),
         ])
+
         if (newTyping !== existingTyping)
           await fs.writeFile(fileName, newTyping, encoding)
-
-        console.log('code', code)
 
         return {
           code,
