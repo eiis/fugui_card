@@ -16,6 +16,8 @@ function getFiles(e: string) {
 
 // 插入预加载文件标签
 export function setPreLoadFile(options: { pathList: string[]; preFix: string } = { pathList: [], preFix: '' }) {
+  // console.log('options', options)
+
   if (options.pathList && options.pathList.length) {
     let res: string[] = []
     options.pathList.forEach((path) => {

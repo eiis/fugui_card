@@ -1,5 +1,4 @@
-import path, { dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import path, { resolve } from 'node:path'
 import UnoCSS from 'unocss/vite'
 
 // import alias from '@rollup/plugin-alias'
@@ -20,6 +19,9 @@ import Components from 'unplugin-vue-components/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import svgLoader from 'vite-svg-loader'
 
+import { VitePluginJsonDTS } from './src/plugin/vite-plugin-json'
+import { setPreLoadFile } from './src/plugin/vite-plugin-preload'
+
 // // 根据 NODE_ENV 加载 .env 文件
 // const envFile = `.env.${process.env.NODE_ENV}`;
 // if (fs.existsSync(path.resolve(__dirname, envFile))) {
@@ -31,11 +33,11 @@ import svgLoader from 'vite-svg-loader'
 // 你现在可以通过 process.env 访问到环境变量
 // console.log(process.env.VITE_APP_TITLE);
 
-const __filename = fileURLToPath(import.meta.url)
-console.log('__filename', __filename) // 输出：/path/to/current/file.mjs
+// const __filename = fileURLToPath(import.meta.url)
+// console.log('__filename', __filename) // 输出：/path/to/current/file.mjs
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-console.log('__dirname', __dirname) // 输出：/path/to/current/file
+// const __dirname = dirname(fileURLToPath(import.meta.url))
+// console.log('__dirname', __dirname) // 输出：/path/to/current/file
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -52,6 +54,7 @@ export default defineConfig(({ command, mode }) => {
     // },
     // base: './',
     plugins: [
+      VitePluginJsonDTS(),
       VueRouter(),
       VueMacros({
         plugins: {
@@ -60,6 +63,7 @@ export default defineConfig(({ command, mode }) => {
           }),
         },
       }),
+      setPreLoadFile(),
       UnoCSS(),
       splitVendorChunkPlugin(),
       // VueDevTools(),

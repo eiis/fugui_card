@@ -1,5 +1,8 @@
 import './index.css'
 
+import Person from './person.json'
+
+// import person from './person.json'
 import App from './App.vue'
 
 // import router from '@/routers'
@@ -7,6 +10,10 @@ import '@unocss/reset/tailwind.css'
 
 // console.log(router, 'router')
 import 'uno.css'
+
+type person = typeof Person
+
+console.log(Person)
 
 console.log(1)
 
