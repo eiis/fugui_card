@@ -20,7 +20,8 @@ import VueMacros from 'unplugin-vue-macros/vite'
 import svgLoader from 'vite-svg-loader'
 
 import { VitePluginJsonDTS } from './src/plugin/vite-plugin-json'
-import { setPreLoadFile } from './src/plugin/vite-plugin-preload'
+
+// import { setPreLoadFile } from './src/plugin/vite-plugin-preload'
 
 // // 根据 NODE_ENV 加载 .env 文件
 // const envFile = `.env.${process.env.NODE_ENV}`;
@@ -63,7 +64,7 @@ export default defineConfig(({ command, mode }) => {
           }),
         },
       }),
-      setPreLoadFile(),
+      // setPreLoadFile(),
       UnoCSS(),
       splitVendorChunkPlugin(),
       // VueDevTools(),
