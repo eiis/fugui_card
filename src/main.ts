@@ -1,5 +1,6 @@
 import './index.css'
 
+import _ from 'lodash-es'
 import Person from './person.json'
 
 // import person from './person.json'
@@ -10,6 +11,8 @@ import '@unocss/reset/tailwind.css'
 
 // console.log(router, 'router')
 import 'uno.css'
+
+console.log(_, 'lodash-es')
 
 type person = typeof Person
 

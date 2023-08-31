@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
 import { defineAsyncComponent, defineComponent, onBeforeMount, onMounted, ref } from 'vue'
-import lodash from 'lodash-es'
 
-let a = 1
-lodash.debounce(() => {
-  a++
-  console.log(a)
-  console.log(123)
-})
+// let a = 1
+// lodash.debounce(() => {
+//   a++
+//   console.log(a)
+//   console.log(123)
+// })
 
 // import Popover from '@/components/Popover.vue'
 

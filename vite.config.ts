@@ -122,11 +122,6 @@ export default defineConfig(({ command, mode }) => {
           brotliSize: true,
         },
       ) as PluginOption,
-      // VueMacros({
-      //   plugins: {
-      //     vue: Vue(),
-      //   },
-      // }),
       // BuildInfo({ meta: { message: 'This is set from vite.config.ts' } })
     ],
     // 放在外面需要配置Vue plugins
@@ -160,8 +155,6 @@ export default defineConfig(({ command, mode }) => {
           manualChunks(id) {
             if (id.includes('lodash'))
               return 'lodash'
-            // if (id.includes('vue-router'))
-            //   return 'vendor'
           },
         },
       },
