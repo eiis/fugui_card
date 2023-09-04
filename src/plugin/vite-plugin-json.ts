@@ -48,7 +48,7 @@ export function VitePluginJsonDTS(): Plugin {
 
     async transform(code: string, id: string) {
       if (fileRegex.test(id)) {
-        console.log(id, code, 'code')
+        // console.log(id, code, 'code')
         const fileName = `${id}.d.ts`
         const [existingTyping, newTyping] = await Promise.all([
           getExisting(fileName),

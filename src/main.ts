@@ -1,7 +1,7 @@
 import './index.css'
 
 import _ from 'lodash-es'
-import Person from './person.json'
+import type Person from './person.json'
 
 // import person from './person.json'
 import App from './App.vue'
@@ -16,9 +16,9 @@ console.log(_, 'lodash-es')
 
 type person = typeof Person
 
-console.log(Person)
+// console.log(Person)
 
-console.log(1)
+// console.log(1)
 
 // import now from '~build/time'
 // import {
