@@ -23,5 +23,14 @@ export default {
 </script>
 
 <template>
-  <div />
+  <!-- <div /> -->
+  <Gpt>
+    <div />
+    <div />
+    <div />
+  </Gpt>
+
+  <Gpt>
+    <template #default />
+  </Gpt>
 </template>

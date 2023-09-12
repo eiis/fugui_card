@@ -21,8 +21,15 @@ console.log(modules, 'modules')
 
 const HelloWorld = defineAsyncComponent({
   loader: () => new Promise<Component>(resolve =>
-    setTimeout(() =>
-      resolve(modules['/src/components/HelloWorld.vue']() as Promise<{ default: Component }>)
+    setTimeout(() => {
+      const componentModule = modules['/src/components/HelloWorld.vue']
+      if (componentModule) {
+        const componentPromise = componentModule() as Promise<{ default: Component }>
+        if (componentPromise)
+          resolve(componentPromise)
+      }
+    }
+    // resolve(modules['/src/components/HelloWorld.vue']() as Promise<{ default: Component }>)
     , 1000),
   ),
   loadingComponent: defineComponent({
