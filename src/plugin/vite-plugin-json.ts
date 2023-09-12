@@ -17,9 +17,9 @@ export default json;`
 
 function replaceJsonModuleString(code: string) {
   const [beforeExport, afterExport] = code.split('export default', 2)
-  const beforeExportReplaced = beforeExport.replace(/=/g, ':')
+  const beforeExportReplaced = beforeExport!.replace(/=/g, ':')
   const afterExportReplaced = beforeExport
-    ? afterExport.replace(/:( *[A-Z|a-z|$]+)/g, ': typeof$1')
+    ? afterExport!.replace(/:( *[A-Z|a-z|$]+)/g, ': typeof$1')
     : afterExport
   return `${[
     beforeExportReplaced,
