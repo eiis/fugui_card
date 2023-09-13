@@ -122,7 +122,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center w-screen h-screen  md:blur-none">
+  <div class="flex items-center justify-center w-screen h-screen animate-puffInCenter  md:blur-none">
     <!-- :style="style" -->
     <!-- style="position: fixed" -->
     <!-- :style="style"

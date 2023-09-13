@@ -25,10 +25,23 @@ export default {
           from: { opacity: 0, transform: 'translate(-50%, -48%) scale(0.96)' },
           to: { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
         },
+        puffInCenter: {
+          '0%': {
+            filter: 'blur(3px)',
+            opacity: 0,
+            transform: 'scale(1.1)',
+          },
+          '100% ': {
+            filter: 'blur(0)',
+            opacity: 1,
+            transform: 'scale(1)',
+          },
+        },
       },
       animation: {
         overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        puffInCenter: 'puffInCenter .3s cubic-bezier(.47,0,.745,.715) both',
       },
     },
   },
