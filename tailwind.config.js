@@ -29,7 +29,7 @@ export default {
           '0%': {
             filter: 'blur(3px)',
             opacity: 0,
-            transform: 'scale(1.1)',
+            transform: 'scale(1.2)',
           },
           '100% ': {
             filter: 'blur(0)',
@@ -41,7 +41,7 @@ export default {
       animation: {
         overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        puffInCenter: 'puffInCenter .3s cubic-bezier(.47,0,.745,.715) both',
+        puffInCenter: 'puffInCenter .1s cubic-bezier(.47,0,.745,.715) both',
       },
     },
   },

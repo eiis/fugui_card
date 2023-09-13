@@ -122,7 +122,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center w-screen h-screen animate-puffInCenter  md:blur-none">
+  <div class="flex items-center justify-center w-screen h-screen  md:blur-none">
     <!-- :style="style" -->
     <!-- style="position: fixed" -->
     <!-- :style="style"
@@ -131,7 +131,7 @@ onMounted(() => {
       id="party-element"
       ref="el"
       un-bg="white dark:slate-900"
-      class="overflow-hidden shadow-xl rounded-xl md:flex"
+      class="overflow-hidden shadow-xl rounded-xl md:flex animate-puffInCenter"
     >
       <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
       <div class="md:shrink-0">
