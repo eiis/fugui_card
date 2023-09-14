@@ -131,7 +131,7 @@ onMounted(() => {
       id="party-element"
       ref="el"
       un-bg="white dark:slate-900"
-      class="overflow-hidden shadow-xl rounded-xl md:flex animate-puffInCenter"
+      class="overflow-hidden shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] rounded-xl md:flex animate-puffInCenter"
     >
       <!-- <img class="h-12 w-12 " :src="icon" alt="ChitChat Logo"> -->
       <div class="md:shrink-0">
