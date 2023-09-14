@@ -127,6 +127,7 @@ onMounted(() => {
     <!-- style="position: fixed" -->
     <!-- :style="style"
       style="position: fixed" -->
+
     <div
       id="party-element"
       ref="el"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
-import { defineAsyncComponent, defineComponent, onBeforeMount, onMounted, ref } from 'vue'
+import { defineAsyncComponent, ref } from 'vue'
 
 // let a = 1
 // lodash.debounce(() => {
@@ -32,7 +32,8 @@ const HelloWorld = defineAsyncComponent({
     // resolve(modules['/src/components/HelloWorld.vue']() as Promise<{ default: Component }>)
     , 1000),
   ),
-  loadingComponent: defineComponent({
+  loadingComponent:
+  defineComponent({
     setup() {
       const elRef = ref()
 
