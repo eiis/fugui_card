@@ -30,7 +30,7 @@ const emit = defineEmits(['change'])
 
 // const imagePath = '../assets'
 
-console.log(new URL('../assets/img/wChat.png', import.meta.url).href)
+// console.log(new URL('../assets/img/wChat.png', import.meta.url).href)
 
 const img = new URL('../assets/img/wChat.png', import.meta.url).href
 // 需要在eslint中配置ecmaVersion为2020
@@ -86,7 +86,7 @@ const isLight = computed(() => {
   return !!isDark.value
 })
 
-console.log('title', title)
+// console.log('title', title)
 
 function buttonClick() {
   emit('change')
@@ -113,7 +113,7 @@ function btnCkick() {
 }
 
 function ModalClick() {
-  console.log(modal.value)
+  // console.log(modal.value)
   modal.value?.openModal()
 }
 onMounted(() => {
@@ -192,9 +192,13 @@ onMounted(() => {
         <div class="flex items-center justify-between">
           <!-- <p>{{ title }}</p> -->
           <!-- <div class="text-2xl i-twemoji-grinning-face-with-smiling-eyes hover:i-twemoji-face-with-tears-of-joy" /> -->
-          <button class="px-4 rounded-md bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
+          <!-- <button class="px-4 rounded-md bg-[#44bd87] motion-safe:hover:scale-110" @click="btnCkick">
             Subscribe Me!
-          </button>
+          </button> -->
+
+          <MagicRainbowButton :interval-delay="800" @click="btnCkick">
+            Subscribe Me!
+          </MagicRainbowButton>
         </div>
         <!-- <button class="w-[160px] px-4 mb-4 bg-[#44bd87] rounded-md hover:bg-[#44bd87] motion-safe:hover:scale-110" @click="buttonClick">
           Change child title

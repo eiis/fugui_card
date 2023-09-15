@@ -1,6 +1,5 @@
 import './index.css'
 
-import _ from 'lodash-es'
 import type Person from './person.json'
 
 // import person from './person.json'
@@ -12,7 +11,7 @@ import '@unocss/reset/tailwind.css'
 // console.log(router, 'router')
 import 'uno.css'
 
-console.log(_, 'lodash-es')
+// console.log(_, 'lodash-es')
 
 type person = typeof Person
 
@@ -40,7 +39,7 @@ type person = typeof Person
 // console.log('github', github)
 
 const app = createApp(App)
-console.log('app', app)
+// console.log('app', app)
 
 // app.use(router)
 

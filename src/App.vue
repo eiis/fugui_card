@@ -13,7 +13,7 @@ import { defineAsyncComponent, ref } from 'vue'
 
 // 导入的模块会单独打包为一个chunk
 const modules = import.meta.glob('@/components/HelloWorld.vue')
-console.log(modules, 'modules')
+// console.log(modules, 'modules')
 
 // console.log('2', h(Popover))
 
@@ -38,11 +38,11 @@ const HelloWorld = defineAsyncComponent({
       const elRef = ref()
 
       onBeforeMount(() => {
-        console.log('el ref', elRef.value)
+        // console.log('el ref', elRef.value)
       })
 
       onMounted(() => {
-        console.log('el ref', elRef.value)
+        // console.log('el ref', elRef.value)
       })
 
       // 从 setup 函数返回一个函数

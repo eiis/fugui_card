@@ -25,10 +25,7 @@
     "isolatedModules": true,
     /* if your code runs in the DOM */
     /* 用于指定编译时要包括哪些库文件的 */
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "skipLibCheck": true,
     "noEmit": true
   },

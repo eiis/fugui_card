@@ -11,6 +11,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     Home: typeof import('./components/Home.vue')['default']
     LoadingComponent: typeof import('./components/loadingComponent.vue')['default']
+    MagicRainbowButton: typeof import('./components/MagicRainbowButton.vue')['default']
     Modal: typeof import('./components/Modal.vue')['default']
     Popover: typeof import('./components/Popover.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

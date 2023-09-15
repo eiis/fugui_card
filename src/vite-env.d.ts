@@ -28,3 +28,13 @@ declare module '~build/info' {
   export const authorDate: string;
   export const commitMessage: string;
 }
+
+declare namespace CSS {
+  interface PropertyDefinition {
+    name: string
+    syntax?: string
+    inherits: boolean
+    initialValue?: string
+  }
+  function registerProperty (propertyDefinition: PropertyDefinition): undefined
+}
