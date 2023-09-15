@@ -16,7 +16,7 @@ const rainbowColors = [
 ]
 
 const paletteSize = rainbowColors.length
-const WINDOW_SIZE = 3
+const WINDOW_SIZE = 2
 
 const hasBrowserSupport: boolean
   = typeof window !== 'undefined'

@@ -1,5 +1,11 @@
 type RangeType = 'number' | 'string'
 
+/**
+ *
+ * @param start
+ * @param end
+ * @param step
+ */
 export const range = function (start: number | string, end?: number | string, step: number = 1): any[] {
   const range: (number | string)[] = []
   let currentStart: number | string = start
@@ -42,6 +48,11 @@ export const range = function (start: number | string, end?: number | string, st
   return range
 }
 
+/**
+ *
+ * @param arr
+ * @param len
+ */
 export function sample<T>(arr: T[], len: number = 1): T[] {
   const output: T[] = []
 
@@ -51,7 +62,11 @@ export function sample<T>(arr: T[], len: number = 1): T[] {
   return output
 }
 
-export function generateId(len: number = 4): string {
+/**
+ *
+ * @param len
+ */
+export function generateId(len: number = 3): string {
   const characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
   return sample(characters, len).join('')
