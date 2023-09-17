@@ -8,17 +8,25 @@ import Modal from './Modal.vue'
 
 // import iconUrl from '@/assets/vue.svg?component'
 
-const { title } = defineProps({
-  title: {
-    type: String,
-    default: 'fugui',
-    validator(value) {
-      // 通过断言强制将 value 视为字符串
-      const valueAsString = value as string
-      // The value must match one of these strings
-      return ['success', 'warning', 'danger'].includes(valueAsString)
-    },
-  },
+// const { title } = defineProps({
+//   title: {
+//     type: String,
+//     default: 'fugui',
+//     validator(value) {
+//       // 通过断言强制将 value 视为字符串
+//       const valueAsString = value as string
+//       // The value must match one of these strings
+//       return ['success', 'warning', 'danger'].includes(valueAsString)
+//     },
+//   },
+// })
+
+interface Props {
+  title: string
+}
+
+const { title } = withDefaults(defineProps<Props>(), {
+  title: 'I am FuGui',
 })
 
 const emit = defineEmits(['change'])
@@ -175,7 +183,7 @@ onMounted(() => {
           <!-- <p>Vite+Vue</p> -->
           <div class="flex font-custom dark:text-white text-xl font-mediu">
             <p class="hover:scale-110 hover:px-4">
-              I am FuGui
+              {{ title }}
             </p>
           </div>
           <button class="absolute top-1 right-1 text-2xl i-carbon-sun dark:i-carbon-moon" @click="toggleDark()" />

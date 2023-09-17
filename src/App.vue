@@ -105,7 +105,7 @@ const initial = ref(1)
     </HelloWorld> -->
     <!-- <TheCounter /> -->
     <!-- <Popover /> -->
-    <HelloWorld v-model:count="state.count" v-model:foo.capitalize="state.foo" @update:count="btnClick" />
+    <HelloWorld v-model:count="state.count" v-model:foo.capitalize="state.foo" title="I am FuGui" @update:count="btnClick" />
 
   <!-- <router-link to="/">
       Go to Home
