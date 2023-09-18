@@ -84,7 +84,7 @@ const initial = ref(1)
 </script>
 
 <template>
-  <div class="container">
+  <div>
     <!-- <Home /> -->
     <!-- <HelloWorld v-model:count="state.count" v-model:foo="state.foo" @change="change">
       <template #header>
