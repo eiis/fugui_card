@@ -4,7 +4,22 @@ import type { Ref } from 'vue'
 import { computed, onMounted, ref } from 'vue'
 import { useDark } from '@vueuse/core'
 
+// import * as babelcore from '@babel/standalone'
+// import vuebabelPluginJsx from '@vue/babel-plugin-jsx'
+
 import Modal from './Modal.vue'
+
+const { title } = withDefaults(defineProps<Props>(), {
+  title: 'I am FuGui',
+})
+const emit = defineEmits(['change'])
+// const plugins = vuebabelPluginJsx
+// const { code } = babelcore.transform('<h1>hi</h1>', {
+//   // presets: ['react']
+//   plugins: [plugins],
+// })
+
+// console.log(code, 'code')
 
 // import iconUrl from '@/assets/vue.svg?component'
 
@@ -24,12 +39,6 @@ import Modal from './Modal.vue'
 interface Props {
   title: string
 }
-
-const { title } = withDefaults(defineProps<Props>(), {
-  title: 'I am FuGui',
-})
-
-const emit = defineEmits(['change'])
 
 // console.log('iconUrl', iconUrl)
 // console.log(import.meta.env, 'import.meta.env')

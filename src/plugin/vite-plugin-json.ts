@@ -40,6 +40,7 @@ export function VitePluginJsonDTS(): Plugin {
   return {
     name: 'vite-plugin-json-dts',
     enforce: 'pre',
+    // apply: 'serve',
     async buildStart(options) {
       // 这里你可以执行任何在构建开始之前需要完成的任务
       // console.log('Build is starting...', options)
@@ -47,8 +48,9 @@ export function VitePluginJsonDTS(): Plugin {
     },
 
     async transform(code: string, id: string) {
+      // console.log(id, code, 'code')
       if (fileRegex.test(id)) {
-        // console.log(id, code, 'code')
+        console.log(id, code, 'code')
         const fileName = `${id}.d.ts`
         const [existingTyping, newTyping] = await Promise.all([
           getExisting(fileName),

@@ -7,9 +7,18 @@ import App from './App.vue'
 
 // import router from '@/routers'
 import '@unocss/reset/tailwind.css'
-
-// console.log(router, 'router')
 import 'uno.css'
+
+interface User {
+  age: number
+  name: string
+}
+
+const jo: User = {
+  age: 18,
+  name: 'jo',
+}
+console.log('jo', jo)
 
 // console.log(_, 'lodash-es')
 
