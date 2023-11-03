@@ -7,6 +7,7 @@ export default antfu(
     rules: {
       'no-console': 'off',
       'node/prefer-global/process': 'off',
+      'antfu/no-import-node-modules-by-path': 'off',
     },
   },
 )

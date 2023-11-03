@@ -1,5 +1,6 @@
 import { existsSync, promises as fs } from 'node:fs'
-import type { Plugin } from 'vite'
+
+// import type { Plugin } from 'vite'
 
 const fileRegex = /\.json$/
 const encoding = 'utf-8'
@@ -36,9 +37,9 @@ async function replaceJsonString(code: string, id: string) {
       : replaceJsonRegularString(await fs.readFile(id, encoding))
 }
 
-export function VitePluginJsonDTS(): Plugin {
+export function VitePluginJsonDTS() {
   return {
-    // name: 'vite-plugin-json-dts',
+    name: 'vite-plugin-json-dts',
     enforce: 'pre',
     // apply: 'serve',
     // async buildStart(options) {

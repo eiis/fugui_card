@@ -128,6 +128,7 @@ function btnCkick() {
       count: party.variation.range(150, 200),
       size: party.variation.range(0.6, 1.4),
     })
+    throw new Error('Test Error')
   }
 }
 
