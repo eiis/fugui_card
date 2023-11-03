@@ -19,7 +19,7 @@ import Components from 'unplugin-vue-components/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import svgLoader from 'vite-svg-loader'
 
-import { VitePluginJsonDTS } from './src/plugin/vite-plugin-json'
+// import { VitePluginJsonDTS } from './src/plugin/vite-plugin-json'
 
 // import { setPreLoadFile } from './src/plugin/vite-plugin-preload'
 
@@ -55,7 +55,7 @@ export default defineConfig(({ command, mode }) => {
     // },
     // base: './',
     plugins: [
-      VitePluginJsonDTS(),
+      // VitePluginJsonDTS(),
       VueRouter(),
       VueMacros({
         plugins: {

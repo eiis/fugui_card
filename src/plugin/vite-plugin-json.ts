@@ -38,14 +38,14 @@ async function replaceJsonString(code: string, id: string) {
 
 export function VitePluginJsonDTS(): Plugin {
   return {
-    name: 'vite-plugin-json-dts',
+    // name: 'vite-plugin-json-dts',
     enforce: 'pre',
     // apply: 'serve',
-    async buildStart(options) {
-      // 这里你可以执行任何在构建开始之前需要完成的任务
-      // console.log('Build is starting...', options)
-      // 例如：生成你的 .ts 文件
-    },
+    // async buildStart(options) {
+    //   // 这里你可以执行任何在构建开始之前需要完成的任务
+    //   // console.log('Build is starting...', options)
+    //   // 例如：生成你的 .ts 文件
+    // },
 
     async transform(code: string, id: string) {
       // console.log(id, code, 'code')

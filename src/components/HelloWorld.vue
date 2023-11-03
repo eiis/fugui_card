@@ -122,7 +122,7 @@ function buttonClick() {
 const partyElement: Ref<HTMLElement | null> = ref(null)
 function btnCkick() {
   // Sentry会自动捕获这里的错误
-  throw new Error('Test Error')
+  // throw new Error('Test Error')
   if (partyElement.value) {
     party.confetti(partyElement.value, {
       count: party.variation.range(150, 200),
