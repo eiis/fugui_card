@@ -28,12 +28,9 @@ const HelloWorld = defineAsyncComponent({
         if (componentPromise)
           resolve(componentPromise)
       }
-    }
-    // resolve(modules['/src/components/HelloWorld.vue']() as Promise<{ default: Component }>)
-    , 1000),
-  ),
-  loadingComponent:
-  defineComponent({
+    }, // resolve(modules['/src/components/HelloWorld.vue']() as Promise<{ default: Component }>)    , 1000),
+    )),
+  loadingComponent: defineComponent({
     setup() {
       const elRef = ref()
 
@@ -71,13 +68,13 @@ function btnClick() {
 //   state.value.title = 'huakai'
 // }
 
-function add() {}
+// function add() {}
 
-function change() {
-  state.value.title = 'huakai'
-}
+// function change() {
+//   state.value.title = 'huakai'
+// }
 
-const initial = ref(1)
+// const initial = ref(1)
 // function change() {
 //   state.value.title = 'huakai'
 // }

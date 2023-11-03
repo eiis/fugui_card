@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 
 import TheCounter from '../src/components/TheCounter.vue'
 
-describe('TheCounter.vue', () => {
+describe('theCounter.vue', () => {
   // 测试组件是否渲染
   it('should render', () => {
     // 创建一个TheCounter组件，并传入initial属性

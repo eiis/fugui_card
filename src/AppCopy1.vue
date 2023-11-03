@@ -3,16 +3,16 @@
 
 <template>
   <div id="nav">
-    <router-link to="/">
+    <RouterLink to="/">
       Home
-    </router-link>
+    </RouterLink>
     |
-    <router-link to="/about">
+    <RouterLink to="/about">
       About
-    </router-link>
+    </RouterLink>
   </div>
   <!-- 路由出口 -->
-  <router-view />
+  <RouterView />
 </template>
 
 <style scoped>

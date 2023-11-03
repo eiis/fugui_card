@@ -1,17 +1,19 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "esModuleInterop": true,
     "target": "ESNext",
+    "jsx": "preserve",
+    /* if your code runs in the DOM */
+    /* 用于指定编译时要包括哪些库文件的 */
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "useDefineForClassFields": true,
-    "moduleResolution": "Node",
+    "baseUrl": ".",
     "module": "ESNext",
-    "strict": true,
-    /* 将添加任何未声明字段 undefined 类型  */
-    "noUncheckedIndexedAccess": true,
+    "moduleResolution": "Node",
     "paths": {
       "@/*": ["src/*"]
     },
+    /* 启用 json 模块检查 */
+    "resolveJsonModule": true,
     "types": [
       "vitest",
       "vue/ref-macros",
@@ -19,19 +21,17 @@
       "node",
       "vite/client"
     ],
-    "jsx": "preserve",
-    /* 启用 json 模块检查 */
-    "resolveJsonModule": true,
+    "strict": true,
+    /* 将添加任何未声明字段 undefined 类型  */
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "isolatedModules": true,
-    /* if your code runs in the DOM */
-    /* 用于指定编译时要包括哪些库文件的 */
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "skipLibCheck": true,
-    "noEmit": true
+    "skipLibCheck": true
   },
   /* 指定要包含在程序中的文件名或模式的数组 */
   "include": [
-    "src/**/*",
+    "src",
     "vite.config.mts"
   ],
   /* 指定解析 include 时应跳过的文件名或模式数组 */

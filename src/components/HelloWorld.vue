@@ -19,7 +19,7 @@ const emit = defineEmits(['change'])
 //   plugins: [plugins],
 // })
 
-// console.log(code, 'code')
+console.log('code')
 
 // import iconUrl from '@/assets/vue.svg?component'
 
@@ -233,11 +233,11 @@ onMounted(() => {
         </button> -->
       </div>
     </div>
-    <teleport to="#app">
+    <Teleport to="#app">
       <Modal ref="modal">
         <p>This is a global modal!</p>
       </Modal>
-    </teleport>
+    </Teleport>
     <!-- <Gpt /> -->
   </div>
 </template>

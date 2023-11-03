@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 declare module '~build/meta' {
-  export const message: string;
+  export const message: string
 }
 
 // declare module "*.svg?component" {
@@ -10,23 +10,23 @@ declare module '~build/meta' {
 // }
 
 declare module '~build/time' {
-  const now: string;
-  export default now;
+  const now: string
+  export default now
 }
 
 declare module '~build/info' {
-  export const CI: any;
-  export const github: any;
-  export const sha: string;
-  export const abbreviatedSha: string;
-  export const tag: string;
-  export const lastTag: string;
-  export const commitsSinceLastTag: string;
-  export const committer: string;
-  export const committerDate: string;
-  export const author: string;
-  export const authorDate: string;
-  export const commitMessage: string;
+  export const CI: any
+  export const github: any
+  export const sha: string
+  export const abbreviatedSha: string
+  export const tag: string
+  export const lastTag: string
+  export const commitsSinceLastTag: string
+  export const committer: string
+  export const committerDate: string
+  export const author: string
+  export const authorDate: string
+  export const commitMessage: string
 }
 
 declare namespace CSS {
@@ -36,5 +36,14 @@ declare namespace CSS {
     inherits: boolean
     initialValue?: string
   }
-  function registerProperty (propertyDefinition: PropertyDefinition): undefined
+  function registerProperty(propertyDefinition: PropertyDefinition): undefined
+}
+
+interface ImportMetaEnv {
+  readonly VITE_APP_TITLE: string
+  readonly VITE_APP_VERSION: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
 }

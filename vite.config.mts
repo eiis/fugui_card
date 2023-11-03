@@ -40,13 +40,13 @@ import { VitePluginJsonDTS } from './src/plugin/vite-plugin-json'
 // const __dirname = dirname(fileURLToPath(import.meta.url))
 // console.log('__dirname', __dirname) // 输出：/path/to/current/file
 
-// https://vitejs.dev/config/
+// https://vitejs.dev/config/ _command, mode
 export default defineConfig(({ command, mode }) => {
   // 根据当前工作目录中的 `mode` 加载 .env 文件
   // 设置第三个参数为 '' 来加载所有环境变量，而不管是否有 `VITE_` 前缀。
   const env = loadEnv(mode, process.cwd(), '')
 
-  console.log('process.env.BASE_ENV', env.VITE_APP_TITLE)
+  console.log('process.env.BASE_ENV', command, env.VITE_APP_TITLE)
 
   return {
     // 剔除 options_api
@@ -152,10 +152,10 @@ export default defineConfig(({ command, mode }) => {
           main: resolve(__dirname, 'index.html'),
         },
         output: {
-          manualChunks(id) {
-            if (id.includes('lodash'))
-              return 'lodash'
-          },
+          // manualChunks(id) {
+          //   if (id.includes('lodash'))
+          //     return 'lodash'
+          // },
         },
       },
     },
